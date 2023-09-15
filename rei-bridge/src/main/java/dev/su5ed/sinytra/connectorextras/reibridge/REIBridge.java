@@ -7,7 +7,8 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.function.Supplier;
 
-@Mod("reibridge")
+@Mod(REIBridge.MODID)
 public class REIBridge {
+    public static final String MODID = "connectorextras_rei_bridge";
     public static final Supplier<PluginDetector> FABRIC_PLUGIN_DETECTOR = Suppliers.memoize(PluginDetectorImpl::new);
 }

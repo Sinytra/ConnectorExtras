@@ -4,7 +4,7 @@ license="MIT"
 issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
 
 [[mods]]
-modId="reibridge"
+modId="connectorextras_rei_bridge"
 version="${file.jarVersion}"
 displayName="REI Bridge"
 authors="Su5eD"
@@ -13,19 +13,19 @@ description='''
 
 '''
 displayTest = 'IGNORE_ALL_VERSION'
-[[dependencies.reibridge]]
+[[dependencies.connectorextras_rei_bridge]]
     modId="forge"
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.reibridge]]
+[[dependencies.connectorextras_rei_bridge]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.reibridge]]
+[[dependencies.connectorextras_rei_bridge]]
     modId="roughlyenoughitems"
     mandatory=true
     versionRange="[0,)"
