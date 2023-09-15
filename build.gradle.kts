@@ -11,23 +11,42 @@ plugins {
 
 val versionMc: String by rootProject
 val versionForge: String by rootProject
-val yarnMappings: String by rootProject
 
 group = "dev.su5ed.sinytra"
 version = "0.0.0-SNAPSHOT"
 
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-    withSourcesJar()
+allprojects {
+    apply(plugin = "java")
+    apply(plugin = "dev.architectury.loom")
+
+    java {
+        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        withSourcesJar()
+    }
+
+    dependencies {
+        minecraft(group = "com.mojang", name = "minecraft", version = versionMc)
+    }
+
+    tasks {
+        jar {
+            manifest.attributes("Implementation-Version" to project.version)
+        }
+    }
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:$versionMc")
-    mappings("net.fabricmc:yarn:$yarnMappings:v2")
+    mappings(loom.officialMojangMappings())
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
 
-    implementation(project(path = ":reach-entity-attributes", configuration = "namedElements"))
-    include(project(":reach-entity-attributes"))
+    includeProject("reach-entity-attributes")
+    includeProject("rei-bridge")
+    includeProject("energy-bridge")
+}
+
+fun DependencyHandlerScope.includeProject(name: String) {
+    implementation(project(path = ":$name", configuration = "namedElements"))
+    include(project(":$name"))
 }
 
 // Mitigate https://github.com/MinecraftForge/InstallerTools/issues/14 in fg.deobf

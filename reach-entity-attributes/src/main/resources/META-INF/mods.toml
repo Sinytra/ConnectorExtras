@@ -12,6 +12,7 @@ displayURL="https://github.com/JamiesWhiteShirt/reach-entity-attribute"
 description='''
 Implements entity attributes for reach distance and attack range
 '''
+displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.reach_entity_attributes]]
     modId="forge"
     mandatory=true

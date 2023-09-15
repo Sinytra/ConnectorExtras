@@ -12,6 +12,7 @@ displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 
 '''
+displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras]]
     modId="forge"
     mandatory=true
