@@ -11,37 +11,38 @@ public class ForgeEnergyStorageHandler implements EnergyStorage {
         this.storage = storage;
     }
 
-    // TODO Conversion ratio
     @Override
     public long insert(long maxAmount, TransactionContext transaction) {
-        int inserted = this.storage.receiveEnergy((int) maxAmount, true);
+        int fe = EnergyBridge.convertFabricToForgeEnergy(maxAmount);
+        int inserted = this.storage.receiveEnergy(fe, true);
         transaction.addCloseCallback((context, result) -> {
             if (result.wasCommitted()) {
-                this.storage.receiveEnergy((int) maxAmount, false);
+                this.storage.receiveEnergy(fe, false);
             }
         });
-        return inserted;
+        return EnergyBridge.unConvertFabricToForgeEnergy(inserted);
     }
 
     @Override
     public long extract(long maxAmount, TransactionContext transaction) {
-        int extracted = this.storage.extractEnergy((int) maxAmount, true);
+        int fe = EnergyBridge.unConvertForgeToFabricEnergy(maxAmount);
+        int extracted = this.storage.extractEnergy(fe, true);
         transaction.addCloseCallback((context, result) -> {
             if (result.wasCommitted()) {
-                this.storage.extractEnergy((int) maxAmount, false);
+                this.storage.extractEnergy(fe, false);
             }
         });
-        return extracted;
+        return EnergyBridge.convertForgeToFabricEnergy(extracted);
     }
 
     @Override
     public long getAmount() {
-        return this.storage.getEnergyStored();
+        return EnergyBridge.convertForgeToFabricEnergy(this.storage.getEnergyStored());
     }
 
     @Override
     public long getCapacity() {
-        return this.storage.getMaxEnergyStored();
+        return EnergyBridge.convertForgeToFabricEnergy(this.storage.getMaxEnergyStored());
     }
 
     @Override

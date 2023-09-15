@@ -28,6 +28,6 @@ displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras]]
     modId="connectormod"
     mandatory=true
-    versionRange="[,)"
+    versionRange="[0,)"
     ordering="NONE"
     side="BOTH"

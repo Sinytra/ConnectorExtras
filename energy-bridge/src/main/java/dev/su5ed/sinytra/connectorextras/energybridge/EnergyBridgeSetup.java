@@ -34,6 +34,17 @@ public class EnergyBridgeSetup {
             }
             return null;
         });
+        EnergyStorage.ITEM.registerFallback((stack, context) -> {
+            if (!stack.isEmpty() && !COMPUTING_CAPABILITY_LOCK.get()) {
+                COMPUTING_CAPABILITY_LOCK.set(true);
+                EnergyStorage storage = stack.getCapability(ForgeCapabilities.ENERGY, null)
+                    .map(ForgeEnergyStorageHandler::new)
+                    .orElse(null);
+                COMPUTING_CAPABILITY_LOCK.set(false);
+                return storage;
+            }
+            return null;
+        });
 
         MinecraftForge.EVENT_BUS.addGenericListener(BlockEntity.class, EnergyBridgeSetup::onAttachBlockEntityCapabilities);
         MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, EnergyBridgeSetup::onAttachItemStackCapabilities);

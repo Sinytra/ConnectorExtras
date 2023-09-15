@@ -13,11 +13,12 @@ val versionMc: String by rootProject
 val versionForge: String by rootProject
 
 group = "dev.su5ed.sinytra"
-version = "0.0.0-SNAPSHOT"
 
 allprojects {
     apply(plugin = "java")
     apply(plugin = "dev.architectury.loom")
+
+    version = "1.0.0"
 
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(17))
