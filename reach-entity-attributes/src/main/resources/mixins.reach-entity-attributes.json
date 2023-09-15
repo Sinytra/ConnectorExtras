@@ -1,0 +1,17 @@
+{
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "required": true,
+  "package": "com.jamieswhiteshirt.reachentityattributes.mixin",
+  "client": [
+    "client.GameRendererMixin"
+  ],
+  "mixins": [
+    "EntityAttributeInstanceAccessor",
+    "ChestStateManagerMixin",
+    "ForgingScreenHandlerMixin",
+    "PlayerEntityInteractionHandlerMixin",
+    "ScreenHandlerMixin"
+  ],
+  "refmap": "refmap.reach-entity-attributes.json"
+}

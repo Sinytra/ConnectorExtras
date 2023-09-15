@@ -1,0 +1,102 @@
+import org.gradle.util.GradleVersion
+import java.time.Instant
+
+plugins {
+    id "dev.architectury.loom"
+    id "net.nemerosa.versioning" version "3.0.0"
+    id "maven-publish"
+}
+
+group = maven_group
+version = mod_version
+
+final isReleaseVersion = !version.endsWith("-SNAPSHOT")
+
+java {
+    withSourcesJar()
+}
+
+loom {
+    forge {
+        mixinConfig "mixins.reach-entity-attributes.json"
+    }
+    mixin {
+        defaultRefmapName.set("refmap.reach-entity-attributes.json")
+    }
+    runs {
+        configureEach {
+            property "mixin.debug", "true"
+            property "mixin.debug.export.decompile", "false"
+            property "mixin.debug.verbose", "true"
+            property "mixin.dumpTargetOnFailure", "true"
+            property "mixin.checks", "true"
+            property "mixin.hotSwap", "true"
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:$minecraft_version"
+    mappings "net.fabricmc:yarn:$yarn_mappings:v2"
+    forge "net.minecraftforge:forge:$forge_version"
+    implementation("com.google.code.findbugs:jsr305:$jsr305_version") {
+        transitive = false
+    }
+    annotationProcessor "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5"
+}
+
+compileJava {
+    options.with {
+        it.release.set(17)
+        it.fork = true
+        it.deprecation = true
+        it.encoding = "UTF-8"
+        it.compilerArgs = ["-Xlint:all", "-parameters"]
+    }
+}
+
+jar {
+    from "/LICENSE"
+    manifest.attributes([
+      "Build-Timestamp": Instant.now(),
+      "Build-Revision": versioning.info.commit,
+      "Build-Jvm": "" +
+        "${System.getProperty("java.version")} (" +
+        "${System.getProperty("java.vm.vendor")} " +
+        "${System.getProperty("java.vm.version")})",
+      "Built-By": GradleVersion.current(),
+
+      "Implementation-Title": project.name,
+      "Implementation-Version": project.version,
+      "Implementation-Vendor": project.group,
+
+      "Specification-Title": "FabricMod",
+      "Specification-Version": "1.0.0",
+      "Specification-Vendor": "dev.sapphic",
+
+      "Sealed": "true"
+    ])
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            afterEvaluate {
+                artifact remapJar
+                artifact(sourcesJar.archiveFile) {
+                    classifier = "sources"
+                    builtBy remapSourcesJar
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = "https://maven.jamieswhiteshirt.com/libs-" + (isReleaseVersion ? "release" : "snapshot")
+            credentials {
+                username = project.properties.jwsMavenUser
+                password = project.properties.jwsMavenPassword
+            }
+        }
+    }
+}

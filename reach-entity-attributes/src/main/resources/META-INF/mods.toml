@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/JamiesWhiteShirt/reach-entity-attribute/issues"
+
+[[mods]]
+modId="reach_entity_attributes"
+version="${file.jarVersion}"
+displayName="Reach Entity Attributes"
+authors="JamiesWhiteShirt, Chloe Dawn"
+displayURL="https://github.com/JamiesWhiteShirt/reach-entity-attribute"
+description='''
+Implements entity attributes for reach distance and attack range
+'''
+[[dependencies.reach_entity_attributes]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.reach_entity_attributes]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
