@@ -55,9 +55,9 @@ also getting you a fixed version ASAP.
 
 Connector Extras is distributed on the following platforms:
 
-- [GitHub Releases](https://github.com/Sinytra/Connector/releases/latest)
-- [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/sinytra-connector)
-- [Modrinth](https://modrinth.com/mod/connector)
+- [GitHub Releases](https://github.com/Sinytra/ConnectorExtras/releases/latest)
+- [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/connector-extras)
+- [Modrinth](https://modrinth.com/mod/connector-extras)
 
 ## License
 
