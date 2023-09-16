@@ -35,8 +35,6 @@ allprojects {
     apply(plugin = "java")
     apply(plugin = "dev.architectury.loom")
 
-    version = "1.0.0"
-
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(17))
         withSourcesJar()
@@ -49,6 +47,15 @@ allprojects {
     tasks {
         jar {
             manifest.attributes("Implementation-Version" to project.version)
+        }
+    }
+}
+
+subprojects {
+    afterEvaluate {
+        if (version == "unspecified") {
+            version = rootProject.version
+            logger.lifecycle("Setting default version of project $name to $version")
         }
     }
 }

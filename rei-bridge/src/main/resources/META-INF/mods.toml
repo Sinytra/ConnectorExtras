@@ -6,11 +6,11 @@ issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
 [[mods]]
 modId="connectorextras_rei_bridge"
 version="${file.jarVersion}"
-displayName="REI Bridge"
+displayName="Connector Extras REI Bridge"
 authors="Su5eD"
 displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
-
+Runs REI's Fabric plugin detector on Forge in addition to the default one, allowing it to load plugins from mods of both platforms at once.
 '''
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_rei_bridge]]

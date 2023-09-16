@@ -6,11 +6,11 @@ issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
 [[mods]]
 modId="connectorextras_energy_bridge"
 version="${file.jarVersion}"
-displayName="Energy Bridge"
+displayName="Connector Extras Energy Bridge"
 authors="Su5eD"
 displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
-
+A bridge between Forge Energy (FE) and Team Reborn's Energy API (E) that allows two-way conversion of energy units, for both BlockEntities and ItemStacks.
 '''
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_energy_bridge]]

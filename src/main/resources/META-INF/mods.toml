@@ -10,7 +10,7 @@ displayName="Connector Extras"
 authors="Su5eD"
 displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
-
+Integrating Connector with third-party APIs
 '''
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras]]
@@ -23,11 +23,5 @@ displayTest = 'IGNORE_ALL_VERSION'
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.connectorextras]]
-    modId="connectormod"
-    mandatory=true
-    versionRange="[0,)"
     ordering="NONE"
     side="BOTH"
