@@ -30,6 +30,7 @@ dependencies {
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
 
     modImplementation(group = "dev.su5ed.sinytra", name = "fabric-loader", version = "2.3.4+0.14.21+1.20.1")
+    modImplementation(group = "dev.su5ed.sinytra.fabric-api", name = "fabric-transfer-api-v1", version = "3.3.1+6acac45477")
 
     modImplementation(group = "dev.emi", name = "emi-forge", version = "1.0.19+1.20.1")
 }
