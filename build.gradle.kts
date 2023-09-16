@@ -46,7 +46,7 @@ allprojects {
 
     tasks {
         jar {
-            manifest.attributes("Implementation-Version" to project.version)
+            manifest.attributes("Implementation-Version" to provider { project.version })
         }
     }
 }

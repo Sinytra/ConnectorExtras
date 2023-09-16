@@ -25,9 +25,3 @@ displayTest = 'IGNORE_ALL_VERSION'
     versionRange="[1.20.1,1.21)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.connectorextras_rei_bridge]]
-    modId="roughlyenoughitems"
-    mandatory=true
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"

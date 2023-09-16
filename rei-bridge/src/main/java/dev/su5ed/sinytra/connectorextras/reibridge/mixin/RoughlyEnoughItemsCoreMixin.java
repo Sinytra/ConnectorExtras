@@ -1,6 +1,6 @@
 package dev.su5ed.sinytra.connectorextras.reibridge.mixin;
 
-import dev.su5ed.sinytra.connectorextras.reibridge.REIBridge;
+import dev.su5ed.sinytra.connectorextras.reibridge.REIBridgeSetup;
 import me.shedaniel.rei.RoughlyEnoughItemsCore;
 import me.shedaniel.rei.impl.init.PluginDetector;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +13,7 @@ public class RoughlyEnoughItemsCoreMixin {
 
     @Inject(method = "onInitialize", at = @At("HEAD"), remap = false)
     private void initializeFabricPlugin(CallbackInfo ci) {
-        PluginDetector detector = REIBridge.FABRIC_PLUGIN_DETECTOR.get();
+        PluginDetector detector = REIBridgeSetup.FABRIC_PLUGIN_DETECTOR.get();
         detector.detectCommonPlugins();
         detector.detectServerPlugins();
     }
