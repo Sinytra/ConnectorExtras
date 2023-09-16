@@ -6,6 +6,10 @@ pluginManagement {
             url = uri("https://maven.minecraftforge.net")
         }
         maven {
+            name = "NeoForged"
+            url = uri("https://maven.neoforged.net")
+        }
+        maven {
             name = "Sponge Snapshots"
             url = uri("https://repo.spongepowered.org/repository/maven-public")
         }

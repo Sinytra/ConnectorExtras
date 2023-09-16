@@ -1,3 +1,4 @@
+import me.modmuss50.mpp.ReleaseType
 import net.fabricmc.loom.util.FileSystemUtil
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
@@ -5,14 +6,30 @@ import java.nio.file.StandardCopyOption
 
 plugins {
     java
-    `maven-publish`
     id("dev.architectury.loom") version "1.3-SNAPSHOT"
+    id("me.modmuss50.mod-publish-plugin") version "0.3.+"
+    id("net.neoforged.gradleutils") version "2.0.+"
 }
 
 val versionMc: String by rootProject
 val versionForge: String by rootProject
+val versionConnectorExtras: String by rootProject
+val curseForgeId: String by project
+val modrinthId: String by project
+val githubRepository: String by project
+val publishBranch: String by project
+val connectorCurseForge: String by project
+val connectorModrinth: String by project
+
+val CI: Provider<String> = providers.environmentVariable("CI")
 
 group = "dev.su5ed.sinytra"
+version = "$versionConnectorExtras+$versionMc"
+// Append git commit hash for dev versions
+if (!CI.isPresent) {
+    version = "$version+dev-${gradleutils.gitInfo["hash"]}"
+}
+println("Project version: $version")
 
 allprojects {
     apply(plugin = "java")
@@ -76,21 +93,32 @@ tasks.remapJar {
     finalizedBy(relocateNestedJars)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
+publishMods {
+    file.set(tasks.jar.flatMap { it.archiveFile })
+    changelog.set(providers.environmentVariable("CHANGELOG").orElse("# $version"))
+    type.set(providers.environmentVariable("PUBLISH_RELEASE_TYPE").orElse("alpha").map(ReleaseType::of))
+    modLoaders.add("forge")
+    dryRun.set(!CI.isPresent)
+
+    github {
+        accessToken.set(providers.environmentVariable("GITHUB_TOKEN"))
+        repository.set(githubRepository)
+        commitish.set(publishBranch)
+    }
+    curseforge {
+        accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
+        projectId.set(curseForgeId)
+        minecraftVersions.add(versionMc)
+        requires {
+            slug.set(connectorCurseForge)
         }
     }
-
-    repositories {
-        maven {
-            name = "Su5eD"
-            url = uri("https://maven.su5ed.dev/releases")
-            credentials {
-                username = System.getenv("MAVEN_USER") ?: "not"
-                password = System.getenv("MAVEN_PASSWORD") ?: "set"
-            }
+    modrinth {
+        accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
+        projectId.set(modrinthId)
+        minecraftVersions.add(versionMc)
+        requires {
+            id.set(connectorModrinth)
         }
     }
 }

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/Sinytra/ConnectorExtras/discussions
+    about: Please look here for frequently asked questions and questions on how to use Connector Extras.
+  - name: Discord
+    url: https://discord.gg/mamk7z3TKZ
+    about: Join us on our discord!
