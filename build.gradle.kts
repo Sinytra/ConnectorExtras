@@ -94,7 +94,7 @@ tasks.remapJar {
 }
 
 publishMods {
-    file.set(tasks.jar.flatMap { it.archiveFile })
+    file.set(tasks.remapJar.flatMap { it.archiveFile })
     changelog.set(providers.environmentVariable("CHANGELOG").orElse("# $version"))
     type.set(providers.environmentVariable("PUBLISH_RELEASE_TYPE").orElse("alpha").map(ReleaseType::of))
     modLoaders.add("forge")
