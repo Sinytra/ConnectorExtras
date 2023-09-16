@@ -15,10 +15,10 @@ public class EmiAgnosForgeMixin {
     @ModifyVariable(method = "getPluginsAgnos", at = @At("RETURN"), remap = false)
     private List<EmiPluginContainer> connectorextras_emi_bridge$addFabricPlugins(List<EmiPluginContainer> orig) {
         orig.addAll(FabricLoader.getInstance()
-                .getEntrypointContainers("emi", EmiPlugin.class)
-                .stream()
-                .map(p -> new EmiPluginContainer(p.getEntrypoint(), p.getProvider().getMetadata().getId()))
-                .toList());
+            .getEntrypointContainers("emi", EmiPlugin.class)
+            .stream()
+            .map(p -> new EmiPluginContainer(p.getEntrypoint(), p.getProvider().getMetadata().getId()))
+            .toList());
         return orig;
     }
 }

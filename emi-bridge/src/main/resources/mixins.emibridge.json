@@ -4,6 +4,7 @@
   "required": true,
   "package": "dev.su5ed.sinytra.connectorextras.emibridge.mixin",
   "mixins": [
-    "EmiAgnosForgeMixin"
+    "EmiAgnosForgeMixin",
+    "MainEntrypointMixin"
   ]
 }
