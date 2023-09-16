@@ -10,7 +10,7 @@ displayName="Connector Extras EMI Bridge"
 authors="Su5eD"
 displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
-Runs EMI's Fabric plugin detector on Forge in addition to the default one, allowing it to load plugins from mods of both platforms at once.
+Loads EMI plugins of Fabric mods on Forge.
 '''
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_emi_bridge]]

@@ -28,6 +28,12 @@ one, allowing it to load plugins from mods of both platforms at once.
 Includes parts of REI Fabric code in the `me.shedaniel.rei` package, licensed under the
 [MIT License](https://github.com/shedaniel/RoughlyEnoughItems/blob/8c03832d5ae716beba4047166505181cadd76e75/LICENSE).
 
+### EMI Plugin Platform Bridge
+
+Similar to the REI Bridge, it loads [EMI](https://github.com/emilyploszaj/emi) plugins of Fabric mods on Forge.
+Includes parts of EMI API code in the `dev.emi.emi.api` package, licensed under the
+[MIT License](https://github.com/emilyploszaj/emi/blob/deef228b4a35cbcccd2e48e645118ed333a26013/LICENSE).
+
 ### Reach Entity Attributes - Forge
 
 A Forge port of the Fabric [Reach Entity Attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes)
