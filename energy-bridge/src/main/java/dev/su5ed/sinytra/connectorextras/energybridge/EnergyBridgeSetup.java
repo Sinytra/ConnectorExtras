@@ -55,9 +55,9 @@ public class EnergyBridgeSetup {
         event.addCapability(new ResourceLocation(EnergyBridge.MODID, "forge_bridge"), new ICapabilityProvider() {
             @Override
             public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-                if (cap == ForgeCapabilities.ENERGY && !COMPUTING_CAPABILITY_LOCK.get()) {
+                if (cap == ForgeCapabilities.ENERGY && be.hasLevel() && !COMPUTING_CAPABILITY_LOCK.get()) {
                     COMPUTING_CAPABILITY_LOCK.set(true);
-                    EnergyStorage storage = EnergyStorage.SIDED.find(be.getLevel(), be.getBlockPos(), side);
+                    EnergyStorage storage = EnergyStorage.SIDED.find(be.getLevel(), be.getBlockPos(), be.getBlockState(), be, side);
                     COMPUTING_CAPABILITY_LOCK.set(false);
                     if (storage != null) {
                         return CAPS.computeIfAbsent(storage, s -> LazyOptional.of(() -> new FabricEnergyStorageHandler(storage))).cast();
