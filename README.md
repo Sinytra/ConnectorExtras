@@ -44,6 +44,13 @@ but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of t
 
 Registers mod event buses of Fabric mods to Architectury Forge to avoid registry init issues.
 
+### Terrablender Bridge
+
+Runs the `terrablender` of Fabric mods on Forge, making their usage with the Forge version
+of [TerraBlender](https://github.com/Glitchfiend/TerraBlender) possible.  
+Includes parts of Terrablender Fabric API code in the `terrablender.api` package, licensed under the
+[LGPLv3 License](https://github.com/Glitchfiend/TerraBlender/blob/32fab3c4dcf710ba1a7251b742e757dbafe251e6/LICENSE).
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us

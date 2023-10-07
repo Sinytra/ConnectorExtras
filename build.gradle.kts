@@ -1,5 +1,6 @@
 import me.modmuss50.mpp.ReleaseType
 import net.fabricmc.loom.util.FileSystemUtil
+import org.gradle.jvm.tasks.Jar
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -83,14 +84,32 @@ dependencies {
     includeProject("emi-bridge")
     includeProject("energy-bridge")
     includeProject("architectury-bridge")
+    includeProject("terrablender-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {
-    implementation(project(path = ":$name", configuration = "namedElements"))
+    runtimeOnly(project(path = ":$name", configuration = "namedElements"))
     include(project(":$name"))
+}
+
+val relocateDirectory: Jar.(String, String) -> Unit by extra { from, to ->
+    doLast {
+        FileSystemUtil.getJarFileSystem(archiveFile.get().asFile.toPath(), false).use { fs ->
+            val fromPath = fs.getPath(from)
+            val toPath = fs.getPath(to)
+            Files.walk(fromPath).forEach {
+                Files.move(
+                    it,
+                    toPath.resolve(fromPath.relativize(it)).also { Files.createDirectories(it.parent) },
+                    StandardCopyOption.COPY_ATTRIBUTES
+                )
+            }
+            Files.walk(fromPath).sorted(Comparator.reverseOrder()).forEach(Files::delete)
+        }
+    }
 }
 
 // Mitigate https://github.com/MinecraftForge/InstallerTools/issues/14 in fg.deobf

@@ -1,6 +1,4 @@
-import net.fabricmc.loom.util.FileSystemUtil
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
+import org.gradle.jvm.tasks.Jar
 
 plugins {
     id("dev.architectury.loom")
@@ -8,6 +6,7 @@ plugins {
 
 val versionMc: String by rootProject
 val versionForge: String by rootProject
+val relocateDirectory: Jar.(String, String) -> Unit by rootProject.extra
 
 loom {
     forge {
@@ -29,6 +28,8 @@ dependencies {
     mappings(loom.officialMojangMappings())
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
 
+    compileOnly(rootProject)
+
     modImplementation(group = "dev.su5ed.sinytra", name = "fabric-loader", version = "2.3.4+0.14.21+1.20.1")
     modImplementation(group = "dev.su5ed.sinytra.fabric-api", name = "fabric-transfer-api-v1", version = "3.3.1+6acac45477")
 
@@ -37,14 +38,5 @@ dependencies {
  
 tasks.remapJar {
     // Painfully move dev/emi into relocate/dev/emi - gradle does NOT make this easy ...
-    doLast {
-        FileSystemUtil.getJarFileSystem(archiveFile.get().asFile.toPath(), false).use { fs ->
-            val from = fs.getPath("dev/emi")
-            val to = fs.getPath("relocate/dev/emi")
-            Files.walk(from).forEach {
-                Files.move(it, to.resolve(from.relativize(it)).also { Files.createDirectories(it.parent) }, StandardCopyOption.COPY_ATTRIBUTES)
-            }
-            Files.walk(from).sorted(Comparator.reverseOrder()).forEach(Files::delete)
-        }
-    }
+    relocateDirectory(this, "dev/emi", "relocate/dev/emi")
 }
