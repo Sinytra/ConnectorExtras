@@ -157,6 +157,10 @@ publishMods {
         requires {
             slug.set(connectorCurseForge)
         }
+        optional { slug.set("roughly-enough-items") }
+        optional { slug.set("emi") }
+        optional { slug.set("terrablender") }
+        optional { slug.set("architectury-api") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -165,5 +169,9 @@ publishMods {
         requires {
             id.set(connectorModrinth)
         }
+        optional { id.set("nfn13YXA") } // REI
+        optional { id.set("fRiHVvU7") } // EMI
+        optional { id.set("kkmrDlKT") } // TerraBlender
+        optional { id.set("lhGA9TYQ") } // Architectury API
     }
 }
