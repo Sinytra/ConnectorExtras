@@ -23,10 +23,6 @@ repositories {
         name = "TerraformersMC"
         url = uri("https://maven.terraformersmc.com/releases")
     }
-    maven {
-        name = "Sinytra"
-        url = uri("https://maven.su5ed.dev/releases")
-    }
 }
 
 dependencies {

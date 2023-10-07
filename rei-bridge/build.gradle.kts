@@ -19,10 +19,6 @@ repositories {
         name = "RoughlyEnoughItems"
         url = uri("https://maven.shedaniel.me")
     }
-    maven {
-        name = "Sinytra"
-        url = uri("https://maven.su5ed.dev/releases")
-    }
 }
 
 dependencies {

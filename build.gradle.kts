@@ -40,6 +40,13 @@ allprojects {
         withSourcesJar()
     }
 
+    repositories {
+        maven {
+            name = "Sinytra"
+            url = uri("https://maven.su5ed.dev/releases")
+        }
+    }
+
     dependencies {
         minecraft(group = "com.mojang", name = "minecraft", version = versionMc)
     }
@@ -60,6 +67,13 @@ subprojects {
     }
 }
 
+repositories {
+    maven {
+        name = "Cursemaven"
+        url = uri("https://cursemaven.com")
+    }
+}
+
 dependencies {
     mappings(loom.officialMojangMappings())
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
@@ -68,6 +82,10 @@ dependencies {
     includeProject("rei-bridge")
     includeProject("emi-bridge")
     includeProject("energy-bridge")
+    includeProject("architectury-bridge")
+
+    // Misc
+    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {

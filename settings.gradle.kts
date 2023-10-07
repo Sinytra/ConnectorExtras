@@ -29,4 +29,4 @@ pluginManagement {
 
 rootProject.name = "ConnectorExtras"
 
-include("reach-entity-attributes", "rei-bridge", "energy-bridge", "intermediary-deobf", "emi-bridge")
+include("reach-entity-attributes", "rei-bridge", "energy-bridge", "intermediary-deobf", "emi-bridge", "architectury-bridge")

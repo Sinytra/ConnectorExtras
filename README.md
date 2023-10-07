@@ -40,6 +40,10 @@ A Forge port of the Fabric [Reach Entity Attributes](https://github.com/JamiesWh
 library, implemented alongside Forge's own reach attributes. Allows for compatiblity with Fabric mods that require it,
 but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
 
+### Architectury API Bridge
+
+Registers mod event buses of Fabric mods to Architectury Forge to avoid registry init issues.
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us

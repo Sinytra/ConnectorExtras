@@ -5,13 +5,6 @@ plugins {
 val versionMc: String by rootProject
 val versionForge: String by rootProject
 
-repositories {
-    maven {
-        name = "Sinytra"
-        url = uri("https://maven.su5ed.dev/releases")
-    }
-}
-
 dependencies {
     mappings(loom.officialMojangMappings())
     forge(group = "net.minecraftforge", name = "forge", version = "$versionMc-$versionForge")
