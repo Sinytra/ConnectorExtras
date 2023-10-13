@@ -86,6 +86,7 @@ dependencies {
     includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
     includeProject("geckolib-fabric-compat")
+    includeProject("modmenu-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -176,5 +177,6 @@ publishMods {
         optional { id.set("kkmrDlKT") } // TerraBlender
         optional { id.set("lhGA9TYQ") } // Architectury API
         optional { id.set("8BmcQJ2H") } // Geckolib
+        optional { id.set("mOgUt4GM") } // Mod Menu
     }
 }

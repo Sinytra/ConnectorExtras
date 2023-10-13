@@ -1,0 +1,9 @@
+{
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "required": true,
+  "package": "dev.su5ed.sinytra.connectorextras.modmenu.mixin",
+  "client": [
+    "ModListScreenMixin"
+  ]
+}

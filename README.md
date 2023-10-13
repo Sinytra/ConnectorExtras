@@ -59,6 +59,12 @@ be used instead. Connector Extras fixes a few issues that have arised with this 
 some items invisible.
 - Initialize `Minecraft#resourceManager` before Connector loads fabric mods, which is required to run Geckolib Fabric
 
+### ModMenu
+
+Integrates ModMenu the config screen factory with Forge's mod list gui. Includes the 
+[ModMenu API](https://github.com/TerraformersMC/ModMenu/tree/91460879c6d0693b14d1632baccea56bf3619f2e/src/main/java/com/terraformersmc/modmenu/api),
+licensed under the MIT license.
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us
