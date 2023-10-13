@@ -1,0 +1,3 @@
+{
+  "injectRenderProvider": "META-INF/asm/injectRenderProvider.js"
+}

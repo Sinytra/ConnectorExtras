@@ -85,6 +85,7 @@ dependencies {
     includeProject("energy-bridge")
     includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
+    includeProject("geckolib-fabric-compat")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -161,6 +162,7 @@ publishMods {
         optional { slug.set("emi") }
         optional { slug.set("terrablender") }
         optional { slug.set("architectury-api") }
+        optional { slug.set("geckolib") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -173,5 +175,6 @@ publishMods {
         optional { id.set("fRiHVvU7") } // EMI
         optional { id.set("kkmrDlKT") } // TerraBlender
         optional { id.set("lhGA9TYQ") } // Architectury API
+        optional { id.set("8BmcQJ2H") } // Geckolib
     }
 }

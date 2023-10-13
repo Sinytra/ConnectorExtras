@@ -51,6 +51,14 @@ of [TerraBlender](https://github.com/Glitchfiend/TerraBlender) possible.
 Includes parts of Terrablender Fabric API code in the `terrablender.api` package, licensed under the
 [LGPLv3 License](https://github.com/Glitchfiend/TerraBlender/blob/32fab3c4dcf710ba1a7251b742e757dbafe251e6/LICENSE).
 
+### Geckolib
+
+Geckolib Forge is incompatible with most Fabric mods that use Geckolib for Fabric. In these cases, Geckolib Fabric must
+be used instead. Connector Extras fixes a few issues that have arised with this version:
+- To improve compatibility, we bridge Gekolib's `RenderProvider` to Forge, fixing an issue that turned
+some items invisible.
+- Initialize `Minecraft#resourceManager` before Connector loads fabric mods, which is required to run Geckolib Fabric
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us

@@ -36,5 +36,6 @@ include(
     "intermediary-deobf",
     "emi-bridge",
     "architectury-bridge",
-    "terrablender-bridge"
+    "terrablender-bridge",
+    "geckolib-fabric-compat"
 )
