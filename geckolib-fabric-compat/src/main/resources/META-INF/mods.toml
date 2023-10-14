@@ -27,7 +27,7 @@ displayTest = 'IGNORE_ALL_VERSION'
     side="BOTH"
 [[dependencies.connectorextras_geckolib_fabric_compat]]
     modId="geckolib"
-    mandatory=true
+    mandatory=false
     versionRange="[4.2,)"
     ordering="NONE"
     side="BOTH"

@@ -1,6 +1,6 @@
 package dev.su5ed.sinytra.connectorextras.modmenu.mixin;
 
-import dev.su5ed.sinytra.connectorextras.modmenu.ModMenuCompat;
+import dev.su5ed.sinytra.connectorextras.modmenu.ModMenuCompatSetup;
 import net.minecraftforge.client.gui.ModListScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,6 +12,6 @@ public class ModListScreenMixin {
 
     @Inject(method = "init", at = @At("HEAD"))
     private void initModMenuCompat(CallbackInfo ci) {
-        ModMenuCompat.init();
+        ModMenuCompatSetup.init();
     }
 }
