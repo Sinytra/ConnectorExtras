@@ -19,14 +19,7 @@ public class ModMenuCompatSetup {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String MODMENU_MODID = "modmenu";
 
-    private static boolean initialized = false;
-
     public static void init() {
-        if (initialized) {
-            return;
-        }
-        initialized = true;
-
         Map<String, ConfigScreenFactory<?>> modFactories = new HashMap<>();
         List<Map<String, ConfigScreenFactory<?>>> providedFactories = new ArrayList<>();
         FabricLoader.getInstance().getEntrypointContainers(MODMENU_MODID, ModMenuApi.class).forEach(container -> {
