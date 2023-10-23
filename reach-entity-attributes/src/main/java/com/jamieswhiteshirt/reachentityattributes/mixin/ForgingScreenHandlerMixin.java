@@ -17,7 +17,7 @@ abstract class ForgingScreenHandlerMixin extends ScreenHandler {
 
     @ModifyConstant(
         method = "method_24924(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Ljava/lang/Boolean;",
-        require = 1, allow = 1, constant = @Constant(doubleValue = 64.0))
+        require = 0, allow = 1, constant = @Constant(doubleValue = 64.0))
     private double getActualReachDistance(final double reachDistance, final PlayerEntity player) {
         return ReachEntityAttributes.getSquaredReachDistance(player, reachDistance);
     }
