@@ -47,7 +47,8 @@ public class EnergyBridgeSetup {
         });
 
         MinecraftForge.EVENT_BUS.addGenericListener(BlockEntity.class, EnergyBridgeSetup::onAttachBlockEntityCapabilities);
-        MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, EnergyBridgeSetup::onAttachItemStackCapabilities);
+        // TODO Fix container item context
+//        MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, EnergyBridgeSetup::onAttachItemStackCapabilities);
     }
 
     private static void onAttachBlockEntityCapabilities(AttachCapabilitiesEvent<BlockEntity> event) {
