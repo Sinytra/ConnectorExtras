@@ -3,6 +3,7 @@
   "compatibilityLevel": "JAVA_16",
   "required": true,
   "package": "dev.su5ed.sinytra.connectorextras.reibridge.mixin",
+  "plugin": "dev.su5ed.sinytra.connectorextras.reibridge.REIBridgeMixinPlugin",
   "client": [
     "client.RoughlyEnoughItemsCoreClientMixin"
   ],

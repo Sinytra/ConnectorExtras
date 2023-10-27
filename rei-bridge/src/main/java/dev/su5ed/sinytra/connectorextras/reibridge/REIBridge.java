@@ -4,5 +4,5 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod("connectorextras_rei_bridge")
 public class REIBridge {
-
+    public static final String REI_MODID = "roughlyenoughitems";
 }

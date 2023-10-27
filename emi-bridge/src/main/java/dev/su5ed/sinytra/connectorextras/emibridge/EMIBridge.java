@@ -8,9 +8,10 @@ import org.slf4j.Logger;
 @Mod("connectorextras_emi_bridge")
 public class EMIBridge {
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static final String EMI_MODID = "emi";
 
     public static void injectModule() {
         LOGGER.info("Injecting EMI API classes");
-        HackyModuleInjector.injectModuleSources("emi", EMIBridge.class.getResource("/relocate"));
+        HackyModuleInjector.injectModuleSources(EMI_MODID, EMIBridge.class.getResource("/relocate"));
     }
 }

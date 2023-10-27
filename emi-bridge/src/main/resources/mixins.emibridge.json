@@ -3,6 +3,7 @@
   "compatibilityLevel": "JAVA_16",
   "required": true,
   "package": "dev.su5ed.sinytra.connectorextras.emibridge.mixin",
+  "plugin": "dev.su5ed.sinytra.connectorextras.emibridge.EMIBridgeMixinPlugin",
   "mixins": [
     "EmiAgnosForgeMixin",
     "MainEntrypointMixin"
