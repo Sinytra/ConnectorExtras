@@ -38,5 +38,6 @@ include(
     "architectury-bridge",
     "terrablender-bridge",
     "geckolib-fabric-compat",
-    "modmenu-bridge"
+    "modmenu-bridge",
+    "continuity-compat"
 )

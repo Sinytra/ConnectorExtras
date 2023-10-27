@@ -87,6 +87,7 @@ dependencies {
     includeProject("terrablender-bridge")
     includeProject("geckolib-fabric-compat")
     includeProject("modmenu-bridge")
+    includeProject("continuity-compat")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -164,6 +165,7 @@ publishMods {
         optional { slug.set("terrablender") }
         optional { slug.set("architectury-api") }
         optional { slug.set("geckolib") }
+        optional { slug.set("continuity") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -178,5 +180,6 @@ publishMods {
         optional { id.set("lhGA9TYQ") } // Architectury API
         optional { id.set("8BmcQJ2H") } // Geckolib
         optional { id.set("mOgUt4GM") } // Mod Menu
+        optional { id.set("1IjD5062") } // Continuity
     }
 }
