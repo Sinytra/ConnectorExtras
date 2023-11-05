@@ -17,12 +17,11 @@ import java.util.Map;
 
 public class ModMenuCompatSetup {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final String MODMENU_MODID = "modmenu";
 
     public static void init() {
         Map<String, ConfigScreenFactory<?>> modFactories = new HashMap<>();
         List<Map<String, ConfigScreenFactory<?>>> providedFactories = new ArrayList<>();
-        FabricLoader.getInstance().getEntrypointContainers(MODMENU_MODID, ModMenuApi.class).forEach(container -> {
+        FabricLoader.getInstance().getEntrypointContainers(ModMenuDummy.MODMENU_MODID, ModMenuApi.class).forEach(container -> {
             String modId = container.getProvider().getMetadata().getId();
             try {
                 ModMenuApi entry = container.getEntrypoint();
