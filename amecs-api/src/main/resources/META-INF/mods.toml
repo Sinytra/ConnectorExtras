@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Apache-2.0"
+issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
+
+[[mods]]
+modId="amecsapi"
+version="${file.jarVersion}"
+displayName="Amecs API"
+authors="Siphalor, Klotzi111"
+displayURL="https://github.com/Sinytra/ConnectorExtras"
+description='''
+The keybinding modifier API of Amecs
+'''
+logoFile="assets/amecsapi/icon.png"
+displayTest = 'IGNORE_ALL_VERSION'
+[[dependencies.amecsapi]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.amecsapi]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

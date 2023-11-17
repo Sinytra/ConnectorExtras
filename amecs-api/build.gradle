@@ -1,0 +1,132 @@
+plugins {
+	id 'dev.architectury.loom'
+	id 'maven-publish'
+	id 'org.cadixdev.licenser' version '0.6.1'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = project.archives_base_name
+version = "$mod_version+mc$minecraft_version".toString()
+group = project.maven_group
+
+sourceSets {
+	testmod {
+		compileClasspath += main.compileClasspath
+		runtimeClasspath += main.runtimeClasspath
+	}
+}
+
+loom {
+	accessWidenerPath.set(file("src/main/resources/amecsapi.accesswidener"))
+    forge {
+        mixinConfig "amecsapi.mixins.json"
+		convertAccessWideners = true
+    }
+    mixin {
+        defaultRefmapName.set("refmap.amecsapi.json")
+    }
+    runs {
+        configureEach {
+            property "mixin.debug", "true"
+            property "mixin.debug.export.decompile", "false"
+            property "mixin.debug.verbose", "true"
+            property "mixin.dumpTargetOnFailure", "true"
+            property "mixin.checks", "true"
+            property "mixin.hotSwap", "true"
+        }
+		testmodClient {
+			client()
+			source sourceSets.testmod
+		}
+    }
+	loom.mods.register("amecsapi_testmod") {
+		sourceSet sourceSets.testmod
+	}
+}
+
+repositories {
+	maven {
+		name "Siphalor's Maven"
+		url "https://maven.siphalor.de"
+	}
+	maven {
+		url "https://jitpack.io"
+	}
+	mavenLocal()
+}
+
+dependencies {
+	//to change the versions see the gradle.properties file
+	forge "net.minecraftforge:forge:$forge_version"
+	mappings "net.fabricmc:yarn:${project.minecraft_version}+build.${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	compileOnly(annotationProcessor("org.projectlombok:lombok:$lombok_version"))
+	testCompileOnly(testAnnotationProcessor("org.projectlombok:lombok:$lombok_version"))
+
+	//modImplementation("de.siphalor:nmuk-${project.minecraft_major_version}:1.0.1+mc1.19.3") {
+	//	exclude module: "amecsapi-${project.minecraft_major_version}"
+	//}
+
+	modImplementation('dev.su5ed.sinytra.fabric-api:fabric-api-base:0.4.30+ef105b4977')
+	modImplementation('dev.su5ed.sinytra.fabric-api:fabric-key-binding-api-v1:1.0.36+561530ec77')
+
+	testmodImplementation sourceSets.main.output
+}
+
+license {
+	header = project.file('LICENSE_HEADER')
+
+	include '**/*.java'
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	afterEvaluate {
+		from(sourceSets.main.resources.srcDirs) {
+			include "fabric.mod.json"
+			expand "version": version
+			duplicatesStrategy DuplicatesStrategy.INCLUDE
+		}
+	}
+}
+
+// ensure that the encoding is set to UTF-8, no matter what the system default is
+// this fixes some edge cases with special characters not displaying correctly
+// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = "UTF-8"
+}
+
+jar {
+	from "LICENSE"
+}
+
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			artifactId = "${project.archives_base_name}-${project.minecraft_major_version}".toString()
+
+			from components.java
+			java.withSourcesJar()
+		}
+	}
+
+	// select the repositories you want to publish to
+	repositories {
+		if (project.hasProperty("siphalorMavenPassword")) {
+			maven {
+				name = "Siphalor"
+				url = "https://maven.siphalor.de/upload.php"
+				credentials {
+					username = siphalorMavenUser
+					password = siphalorMavenPassword
+				}
+			}
+		}
+	}
+}

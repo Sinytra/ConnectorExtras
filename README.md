@@ -73,6 +73,12 @@ However, this is too soon as it happens before blocks of Forge mods are register
 be created for Forge mod blocks. To fix this issue, we patch Continuity to move the block state map initialization from
 Fabric's client entrypoint to FML's client setup event, which is fired after registration has completed.
 
+### Amecs API - Forge port
+
+A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)
+library, implemented alongside Forge's key modifier system. Allows for compatiblity with Fabric mods that require it,
+but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us

@@ -88,6 +88,7 @@ dependencies {
     includeProject("geckolib-fabric-compat")
     includeProject("modmenu-bridge")
     includeProject("continuity-compat")
+    includeProject("amecs-api")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")

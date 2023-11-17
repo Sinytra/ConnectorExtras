@@ -39,5 +39,6 @@ include(
     "terrablender-bridge",
     "geckolib-fabric-compat",
     "modmenu-bridge",
-    "continuity-compat"
+    "continuity-compat",
+    "amecs-api"
 )
