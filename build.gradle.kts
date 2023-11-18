@@ -56,6 +56,10 @@ allprojects {
         jar {
             manifest.attributes("Implementation-Version" to provider { project.version })
         }
+
+        withType<net.fabricmc.loom.task.AbstractRemapJarTask> {
+            remapperIsolation.set(false)
+        }
     }
 }
 
