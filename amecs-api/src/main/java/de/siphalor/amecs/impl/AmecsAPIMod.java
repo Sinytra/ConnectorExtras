@@ -16,21 +16,8 @@
 
 package de.siphalor.amecs.impl;
 
-import de.siphalor.amecs.api.KeyModifiers;
 import net.minecraftforge.fml.common.Mod;
-import org.jetbrains.annotations.ApiStatus;
 
-@ApiStatus.Internal
-public class AmecsAPI {
-	public static final String MOD_ID = "amecsapi";
-	public static final String MOD_NAME = "Amecs API";
-
-	public static final KeyModifiers CURRENT_MODIFIERS = new KeyModifiers();
-
-	// this is used by KTIG
-	public static boolean TRIGGER_KEYBINDING_ON_SCROLL = true;
-
-	public static String makeKeyID(String keyName) {
-		return "key." + MOD_ID + "." + keyName;
-	}
+@Mod(AmecsAPI.MOD_ID)
+public class AmecsAPIMod {
 }

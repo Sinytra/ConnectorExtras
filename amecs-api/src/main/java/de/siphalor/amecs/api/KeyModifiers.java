@@ -59,7 +59,7 @@ public class KeyModifiers {
 	}
 
 	public static KeyModifiers getCurrentlyPressed() {
-		return AmecsAPI.CURRENT_MODIFIERS;
+		return new KeyModifiers(net.minecraftforge.client.settings.KeyModifier.getActiveModifier());
 	}
 
 	// using a boolean array here because it is faster and needs less space
@@ -111,11 +111,11 @@ public class KeyModifiers {
 	 *
 	 * @return whether the modifiers match in the current context
 	 * @deprecated always performs an exact check against {@link #getCurrentlyPressed()}.
-	 * Use {@link AmecsAPI#CURRENT_MODIFIERS} in combination with {@link #contains(KeyModifiers)} or {@link #equals(KeyModifiers)} instead.
+	 * Use {@link #getCurrentlyPressed} in combination with {@link #contains(KeyModifiers)} or {@link #equals(KeyModifiers)} instead.
 	 */
 	@Deprecated
 	public boolean isPressed() {
-		return equals(AmecsAPI.CURRENT_MODIFIERS);
+		return equals(getCurrentlyPressed());
 	}
 
 	/**
