@@ -184,7 +184,6 @@ publishMods {
         optional { id.set("kkmrDlKT") } // TerraBlender
         optional { id.set("lhGA9TYQ") } // Architectury API
         optional { id.set("8BmcQJ2H") } // Geckolib
-        optional { id.set("mOgUt4GM") } // Mod Menu
         optional { id.set("1IjD5062") } // Continuity
     }
 }
