@@ -1,5 +1,6 @@
 package dev.su5ed.sinytra.connectorextras.forgeconfigapiport;
 
+import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
 import fuzs.forgeconfigapiport.api.config.v2.ModConfigEvents;
 import net.fabricmc.fabric.api.event.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +19,8 @@ public class ForgeConfigApiPortImpl {
         bus.addListener(ForgeConfigApiPortImpl::onConfigLoad);
         bus.addListener(ForgeConfigApiPortImpl::onConfigReload);
         bus.addListener(ForgeConfigApiPortImpl::onConfigUnload);
+
+        ((ForgeConfigRegistryImpl) ForgeConfigRegistry.INSTANCE).processConfigs();
     }
 
     private static void onConfigLoad(ModConfigEvent.Loading event) {

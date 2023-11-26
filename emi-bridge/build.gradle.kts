@@ -28,7 +28,7 @@ dependencies {
     mappings(loom.officialMojangMappings())
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
 
-    compileOnly(rootProject)
+    compileOnly(project(":extras-utils"))
 
     modImplementation(group = "dev.su5ed.sinytra", name = "fabric-loader", version = "2.3.4+0.14.21+1.20.1")
     modImplementation(group = "dev.su5ed.sinytra.fabric-api", name = "fabric-transfer-api-v1", version = "3.3.1+6acac45477")

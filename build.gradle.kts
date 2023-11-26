@@ -37,6 +37,7 @@ println("Project version: $version")
 allprojects {
     apply(plugin = "java")
     apply(plugin = "dev.architectury.loom")
+    apply(plugin = "maven-publish")
 
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -63,6 +64,19 @@ allprojects {
             remapperIsolation.set(false)
         }
     }
+    
+    afterEvaluate { 
+        extensions.getByType<PublishingExtension>().run {
+            if (publications.isEmpty()) {
+                publications {
+                    create<MavenPublication>("mavenJava") {
+                        group = rootProject.group
+                        from(components["java"])
+                    }
+                }
+            }
+        }
+    }
 }
 
 subprojects {
@@ -72,6 +86,10 @@ subprojects {
             logger.lifecycle("Setting default version of project $name to $version")
         }
     }
+}
+
+configurations.runtimeElements {
+    setExtendsFrom(listOf(configurations.include.get()))
 }
 
 repositories {
@@ -96,6 +114,7 @@ dependencies {
     includeProject("continuity-compat")
     includeProject("amecs-api")
     includeProject("forgeconfigapiport")
+    includeProject("extras-utils")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -103,7 +122,9 @@ dependencies {
 
 fun DependencyHandlerScope.includeProject(name: String) {
     runtimeOnly(project(path = ":$name", configuration = "namedElements"))
-    include(project(":$name"))
+    api(include(project(":$name")) {
+        isTransitive = false
+    })
 }
 
 val relocateDirectory: Jar.(String, String) -> Unit by extra { from, to ->

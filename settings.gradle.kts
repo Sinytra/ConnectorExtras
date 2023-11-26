@@ -41,5 +41,6 @@ include(
     "modmenu-bridge",
     "continuity-compat",
     "amecs-api",
-    "forgeconfigapiport"
+    "forgeconfigapiport",
+    "extras-utils"
 )
