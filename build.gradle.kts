@@ -4,6 +4,8 @@ import org.gradle.jvm.tasks.Jar
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import kotlin.io.path.deleteExisting
+import kotlin.io.path.exists
 
 plugins {
     java
@@ -93,6 +95,7 @@ dependencies {
     includeProject("modmenu-bridge")
     includeProject("continuity-compat")
     includeProject("amecs-api")
+    includeProject("forgeconfigapiport")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -129,16 +132,18 @@ val relocateNestedJars by tasks.registering {
     doLast {
         FileSystemUtil.getJarFileSystem(archiveFile.get().asFile.toPath(), false).use { fs ->
             val sourceDirectory = fs.getPath("META-INF", "jars")
-            val destinationDirectory = fs.getPath("META-INF", "jarjar")
-            Files.newDirectoryStream(sourceDirectory).forEach { path ->
-                Files.move(path, destinationDirectory.resolve(path.fileName), StandardCopyOption.COPY_ATTRIBUTES)
-            }
-            Files.delete(sourceDirectory)
+            if (sourceDirectory.exists()) {
+                val destinationDirectory = fs.getPath("META-INF", "jarjar")
+                Files.newDirectoryStream(sourceDirectory).forEach { path ->
+                    Files.move(path, destinationDirectory.resolve(path.fileName), StandardCopyOption.COPY_ATTRIBUTES)
+                }
+                sourceDirectory.deleteExisting()
 
-            val metadata = fs.getPath("META-INF", "jarjar", "metadata.json")
-            val text = Files.readString(metadata, StandardCharsets.UTF_8)
-            val replaced = text.replace("META-INF/jars/", "META-INF/jarjar/")
-            Files.writeString(metadata, replaced, StandardCharsets.UTF_8)
+                val metadata = fs.getPath("META-INF", "jarjar", "metadata.json")
+                val text = Files.readString(metadata, StandardCharsets.UTF_8)
+                val replaced = text.replace("META-INF/jars/", "META-INF/jarjar/")
+                Files.writeString(metadata, replaced, StandardCharsets.UTF_8)
+            }
         }
     }
 }

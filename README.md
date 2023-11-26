@@ -79,6 +79,13 @@ A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)
 library, implemented alongside Forge's key modifier system. Allows for compatiblity with Fabric mods that require it,
 but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
 
+### Forge Config API Port - Forge bridge
+
+A clean implementation of [Forge Config API Port](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric)
+on Forge, allowing Fabric mods to easily access the Forge config system and register their own configs.
+Includes the [Forge Config API Port API](https://github.com/Fuzss/forgeconfigapiport/tree/8dbbc0d49afb46928a1dfc0c7f828af06da1638d/Fabric/src/main/java/fuzs/forgeconfigapiport/api/config/v2),
+licensed under the MPL-2.0 license.
+
 ## Get help
 
 If you're having trouble using Connector Extras or believe it is not functioning correctly, ask us

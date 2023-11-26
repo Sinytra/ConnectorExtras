@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MPL-2.0"
+issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
+
+[[mods]]
+modId="forgeconfigapiport"
+version="8.0.0"
+displayName="Forge Config API Port (ConnectorExtras)"
+authors="Su5eD"
+credits="Fuzs - upstream author"
+displayURL="https://github.com/Sinytra/ConnectorExtras"
+description='''
+Forge's whole config system provided to the Fabric ecosystem. Designed for a multiloader architecture.
+'''
+logoFile="mod_logo.png"
+displayTest = 'IGNORE_ALL_VERSION'
+
+[[dependencies.forgeconfigapiport]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.forgeconfigapiport]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

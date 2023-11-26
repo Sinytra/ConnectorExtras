@@ -40,5 +40,6 @@ include(
     "geckolib-fabric-compat",
     "modmenu-bridge",
     "continuity-compat",
-    "amecs-api"
+    "amecs-api",
+    "forgeconfigapiport"
 )
