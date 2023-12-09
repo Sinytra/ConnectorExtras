@@ -1,0 +1,16 @@
+{
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "required": true,
+  "plugin": "dev.su5ed.sinytra.connectorextras.kubejs.KubeJSCompatMixinPlugin",
+  "package": "dev.su5ed.sinytra.connectorextras.kubejs.mixin",
+  "mixins": [
+    "KubeJSMixin"
+  ],
+  "client": [
+    "MinecraftMixin"
+  ],
+  "server": [
+    "ServerMainMixin"
+  ]
+}

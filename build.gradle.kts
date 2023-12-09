@@ -115,6 +115,7 @@ dependencies {
     includeProject("amecs-api")
     includeProject("forgeconfigapiport")
     includeProject("extras-utils")
+    includeProject("kubejs-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -197,6 +198,7 @@ publishMods {
         optional { slug.set("architectury-api") }
         optional { slug.set("geckolib") }
         optional { slug.set("continuity") }
+        optional { slug.set("kubejs") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -211,5 +213,6 @@ publishMods {
         optional { id.set("lhGA9TYQ") } // Architectury API
         optional { id.set("8BmcQJ2H") } // Geckolib
         optional { id.set("1IjD5062") } // Continuity
+        optional { id.set("umyGl7zF") } // KubeJS
     }
 }

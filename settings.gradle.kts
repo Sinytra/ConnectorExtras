@@ -42,5 +42,6 @@ include(
     "continuity-compat",
     "amecs-api",
     "forgeconfigapiport",
-    "extras-utils"
+    "extras-utils",
+    "kubejs-bridge"
 )

@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
+
+[[mods]]
+modId="connectorextras_kubejs_bridge"
+version="${file.jarVersion}"
+displayName="Connector Extras KubeJS Bridge"
+authors="Su5eD"
+displayURL="https://github.com/Sinytra/ConnectorExtras"
+description='''
+Provides KubeJS plugin support for Fabric mods on Forge
+'''
+displayTest = 'IGNORE_ALL_VERSION'
+
+[[dependencies.connectorextras_kubejs_bridge]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.connectorextras_kubejs_bridge]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.connectorextras_kubejs_bridge]]
+    modId="kubejs"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.connectorextras_kubejs_bridge]]
+    modId="connectormod"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"

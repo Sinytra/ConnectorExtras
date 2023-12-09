@@ -73,6 +73,10 @@ However, this is too soon as it happens before blocks of Forge mods are register
 be created for Forge mod blocks. To fix this issue, we patch Continuity to move the block state map initialization from
 Fabric's client entrypoint to FML's client setup event, which is fired after registration has completed.
 
+### KubeJS Bridge
+
+Provides KubeJS plugin support for Fabric mods on Forge by initializing them earlier.
+
 ### Amecs API - Forge port
 
 A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)
