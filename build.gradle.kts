@@ -116,6 +116,7 @@ dependencies {
     includeProject("forgeconfigapiport")
     includeProject("extras-utils")
     includeProject("kubejs-bridge")
+    includeProject("jei-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")

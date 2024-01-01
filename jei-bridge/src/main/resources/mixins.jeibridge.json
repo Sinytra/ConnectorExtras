@@ -1,0 +1,10 @@
+{
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "required": true,
+  "package": "dev.su5ed.sinytra.connectorextras.jeibridge.mixin",
+  "plugin": "dev.su5ed.sinytra.connectorextras.jeibridge.JEIBridgeMixinPlugin",
+  "mixins": [
+    "ForgePluginFinderMixin"
+  ]
+}
