@@ -200,6 +200,7 @@ publishMods {
         optional { slug.set("geckolib") }
         optional { slug.set("continuity") }
         optional { slug.set("kubejs") }
+        optional { slug.set("jei") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -215,5 +216,6 @@ publishMods {
         optional { id.set("8BmcQJ2H") } // Geckolib
         optional { id.set("1IjD5062") } // Continuity
         optional { id.set("umyGl7zF") } // KubeJS
+        optional { id.set("u6dRKJwZ") } // JEI
     }
 }

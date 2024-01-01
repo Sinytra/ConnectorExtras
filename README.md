@@ -34,6 +34,13 @@ Similar to the REI Bridge, it loads [EMI](https://github.com/emilyploszaj/emi) p
 Includes parts of EMI API code in the `dev.emi.emi.api` package, licensed under the
 [MIT License](https://github.com/emilyploszaj/emi/blob/deef228b4a35cbcccd2e48e645118ed333a26013/LICENSE).
 
+### JEI Plugin Platform Bridge
+
+Runs [JEI](https://github.com/mezz/JustEnoughItems)'s Fabric plugin detector on Forge in addition to the default
+one, allowing it to load plugins from mods of both platforms at once.
+Includes parts of JEI Fabric code in the `mezz.jei.api.fabric` package, licensed under the
+[MIT License](https://github.com/mezz/JustEnoughItems/blob/e78fd1951c38770de8462ead2187e565fe2996eb/LICENSE.txt).
+
 ### Reach Entity Attributes - Forge
 
 A Forge port of the Fabric [Reach Entity Attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes)
