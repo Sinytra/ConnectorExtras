@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.gui.ModListScreen;
 import net.minecraftforge.fml.ModList;
