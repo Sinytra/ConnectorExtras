@@ -9,13 +9,6 @@ repositories {
         name = "GeckoLib"
         url = uri("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven")
     }
-    maven {
-        name = "CurseMaven"
-        url = uri("https://cursemaven.com")
-        content {
-            includeGroup("curse.maven")
-        }
-    }
 }
 
 dependencies {

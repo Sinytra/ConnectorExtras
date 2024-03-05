@@ -49,6 +49,13 @@ allprojects {
             name = "Sinytra"
             url = uri("https://maven.su5ed.dev/releases")
         }
+        maven {
+            name = "CurseMaven"
+            url = uri("https://cursemaven.com")
+            content {
+                includeGroup("curse.maven")
+            }
+        }
     }
 
     dependencies {
@@ -92,13 +99,6 @@ configurations.runtimeElements {
     setExtendsFrom(listOf(configurations.include.get()))
 }
 
-repositories {
-    maven {
-        name = "Cursemaven"
-        url = uri("https://cursemaven.com")
-    }
-}
-
 dependencies {
     mappings(loom.officialMojangMappings())
     forge("net.minecraftforge:forge:$versionMc-$versionForge")
@@ -117,6 +117,7 @@ dependencies {
     includeProject("extras-utils")
     includeProject("kubejs-bridge")
     includeProject("jei-bridge")
+    includeProject("pehkui-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
@@ -201,6 +202,7 @@ publishMods {
         optional { slug.set("continuity") }
         optional { slug.set("kubejs") }
         optional { slug.set("jei") }
+        optional { slug.set("pehkui") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -217,5 +219,6 @@ publishMods {
         optional { id.set("1IjD5062") } // Continuity
         optional { id.set("umyGl7zF") } // KubeJS
         optional { id.set("u6dRKJwZ") } // JEI
+        optional { id.set("t5W7Jfwy") } // Pehkui
     }
 }

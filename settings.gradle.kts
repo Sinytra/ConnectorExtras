@@ -44,5 +44,6 @@ include(
     "forgeconfigapiport",
     "extras-utils",
     "kubejs-bridge",
-    "jei-bridge"
+    "jei-bridge",
+    "pehkui-bridge"
 )

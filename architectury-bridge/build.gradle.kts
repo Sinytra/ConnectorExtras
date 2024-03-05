@@ -23,10 +23,6 @@ repositories {
         name = "Architectury"
         url = uri("https://maven.architectury.dev")
     }
-    maven {
-        name = "Cursemaven"
-        url = uri("https://cursemaven.com")
-    }
 }
 
 dependencies {
