@@ -38,7 +38,7 @@ public class EnergyBridgeSetup {
             if (!stack.isEmpty() && !COMPUTING_CAPABILITY_LOCK.get()) {
                 COMPUTING_CAPABILITY_LOCK.set(true);
                 EnergyStorage storage = stack.getCapability(ForgeCapabilities.ENERGY, null)
-                    .map(ForgeEnergyStorageHandler::new)
+                    .map(s -> new ForgeEnergyStorageHandler(s, context, stack))
                     .orElse(null);
                 COMPUTING_CAPABILITY_LOCK.set(false);
                 return storage;
@@ -47,8 +47,7 @@ public class EnergyBridgeSetup {
         });
 
         MinecraftForge.EVENT_BUS.addGenericListener(BlockEntity.class, EnergyBridgeSetup::onAttachBlockEntityCapabilities);
-        // TODO Fix container item context
-//        MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, EnergyBridgeSetup::onAttachItemStackCapabilities);
+        MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, EnergyBridgeSetup::onAttachItemStackCapabilities);
     }
 
     private static void onAttachBlockEntityCapabilities(AttachCapabilitiesEvent<BlockEntity> event) {
@@ -76,10 +75,11 @@ public class EnergyBridgeSetup {
             public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
                 if (cap == ForgeCapabilities.ENERGY && !COMPUTING_CAPABILITY_LOCK.get()) {
                     COMPUTING_CAPABILITY_LOCK.set(true);
-                    EnergyStorage storage = EnergyStorage.ITEM.find(stack, ContainerItemContext.withConstant(stack));
+                    FabricEnergySlotHandler handler = new FabricEnergySlotHandler(stack);
+                    EnergyStorage storage = EnergyStorage.ITEM.find(stack, ContainerItemContext.ofSingleSlot(handler));
                     COMPUTING_CAPABILITY_LOCK.set(false);
                     if (storage != null) {
-                        return CAPS.computeIfAbsent(storage, b -> LazyOptional.of(() -> new FabricEnergyStorageHandler(storage))).cast();
+                        return CAPS.computeIfAbsent(storage, b -> LazyOptional.of(() -> new FabricEnergyStorageHandler(storage, stack, handler))).cast();
                     }
                 }
                 return LazyOptional.empty();
