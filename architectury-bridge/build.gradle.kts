@@ -15,6 +15,7 @@ loom {
 }
 
 repositories {
+    mavenLocal()
     maven {
         name = "Sinytra"
         url = uri("https://maven.su5ed.dev/releases")
@@ -29,6 +30,7 @@ dependencies {
     mappings(loom.officialMojangMappings())
     forge(group = "net.minecraftforge", name = "forge", version = "$versionMc-$versionForge")
 
-    modImplementation(group = "curse.maven", name = "sinytra-connector-890127", version = "4774408")
+    modImplementation("org.sinytra:Connector:1.0.0-beta.44+1.20.1+dev-g91b161f") //mavenLocal
+    //modImplementation(group = "curse.maven", name = "sinytra-connector-890127", version = "4774408")
     modImplementation(group = "dev.architectury", name = "architectury-forge", version = "9.1.12")
 }

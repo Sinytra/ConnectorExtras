@@ -3,7 +3,7 @@ package dev.su5ed.sinytra.connectorextras.kubejs;
 import dev.architectury.platform.Mod;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.util.KubeJSPlugins;
-import dev.su5ed.sinytra.connector.loader.ConnectorEarlyLoader;
+import org.sinytra.connector.loader.ConnectorEarlyLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import net.minecraftforge.forgespi.language.IModFileInfo;

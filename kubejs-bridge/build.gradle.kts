@@ -15,6 +15,7 @@ loom {
 }
 
 repositories {
+    mavenLocal()
     maven {
         url = uri("https://maven.architectury.dev")
         content {
@@ -33,7 +34,8 @@ dependencies {
     mappings(loom.officialMojangMappings())
     forge(group = "net.minecraftforge", name = "forge", version = "$versionMc-$versionForge")
 
-    modImplementation("dev.su5ed.sinytra:Connector:1.0.0-beta.29+1.20.1")
+    modImplementation("org.sinytra:Connector:1.0.0-beta.44+1.20.1+dev-g91b161f") //mavenLocal
+    //modImplementation("dev.su5ed.sinytra:Connector:1.0.0-beta.29+1.20.1")
     modImplementation("dev.latvian.mods:kubejs-forge:2001.6.4-build.111")
     modImplementation("dev.latvian.mods:rhino-forge:2001.2.2-build.13")
     modImplementation("dev.architectury:architectury-forge:9.1.12")

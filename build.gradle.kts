@@ -45,6 +45,7 @@ allprojects {
     }
 
     repositories {
+        mavenLocal()
         maven {
             name = "Sinytra"
             url = uri("https://maven.su5ed.dev/releases")
