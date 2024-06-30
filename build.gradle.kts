@@ -111,7 +111,6 @@ dependencies {
     includeProject("terrablender-bridge")
     includeProject("geckolib-fabric-compat")
     includeProject("modmenu-bridge")
-    includeProject("continuity-compat")
     includeProject("amecs-api")
     includeProject("forgeconfigapiport")
     includeProject("extras-utils")
@@ -199,7 +198,6 @@ publishMods {
         optional { slug.set("terrablender") }
         optional { slug.set("architectury-api") }
         optional { slug.set("geckolib") }
-        optional { slug.set("continuity") }
         optional { slug.set("kubejs") }
         optional { slug.set("jei") }
         optional { slug.set("pehkui") }
@@ -216,7 +214,6 @@ publishMods {
         optional { id.set("kkmrDlKT") } // TerraBlender
         optional { id.set("lhGA9TYQ") } // Architectury API
         optional { id.set("8BmcQJ2H") } // Geckolib
-        optional { id.set("1IjD5062") } // Continuity
         optional { id.set("umyGl7zF") } // KubeJS
         optional { id.set("u6dRKJwZ") } // JEI
         optional { id.set("t5W7Jfwy") } // Pehkui

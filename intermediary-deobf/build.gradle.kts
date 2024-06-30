@@ -20,5 +20,4 @@ dependencies {
     modImplementation(group = "software.bernie.geckolib", name = "geckolib-fabric-1.20.1", version = "4.2.2") {
         isTransitive = false
     }
-    modImplementation(group = "curse.maven", name = "continuity-531351", version = "4779473")
 }
