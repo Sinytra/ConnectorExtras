@@ -72,14 +72,6 @@ Integrates ModMenu the config screen factory with Forge's mod list gui. Includes
 [ModMenu API](https://github.com/TerraformersMC/ModMenu/tree/91460879c6d0693b14d1632baccea56bf3619f2e/src/main/java/com/terraformersmc/modmenu/api),
 licensed under the MIT license.
 
-### Continuity Compat
-
-Fixes Continuity's connected textures for modded blocks. By default, Continuity builds a map of model IDs to
-all registered blocks in its client initializer (`ModelWrappingHandler#createBlockStateModelIdMap`).
-However, this is too soon as it happens before blocks of Forge mods are registered. As a results, CTM models will not
-be created for Forge mod blocks. To fix this issue, we patch Continuity to move the block state map initialization from
-Fabric's client entrypoint to FML's client setup event, which is fired after registration has completed.
-
 ### KubeJS Bridge
 
 Provides KubeJS plugin support for Fabric mods on Forge by initializing them earlier.
