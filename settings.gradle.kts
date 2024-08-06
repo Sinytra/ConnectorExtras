@@ -24,8 +24,8 @@ rootProject.name = "ConnectorExtras"
 include(
 //    "reach-entity-attributes",
     "rei-bridge",
-//    "energy-bridge",
-//    "intermediary-deobf",
+    "energy-bridge",
+    "intermediary-deobf",
     "emi-bridge",
 //    "architectury-bridge",
     "terrablender-bridge",

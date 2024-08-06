@@ -2,7 +2,7 @@ package dev.su5ed.sinytra.connectorextras.energybridge;
 
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import team.reborn.energy.api.EnergyStorage;
 
 public class FabricEnergyStorageHandler implements IEnergyStorage {
@@ -34,7 +34,7 @@ public class FabricEnergyStorageHandler implements IEnergyStorage {
             if (!simulate) {
                 transaction.commit();
                 if (stack != null) {
-                    stack.setTag(handler.getStack().getTag());
+                    stack.applyComponents(handler.getStack().getComponents());
                 }
             } else if (stack != null && originalAmount == (this.storage.getAmount() - inserted)) {
                 //Some implementations just commit the transaction by themselves, so it must be reverted afterwards
@@ -56,7 +56,7 @@ public class FabricEnergyStorageHandler implements IEnergyStorage {
             if (!simulate) {
                 transaction.commit();
                 if (stack != null) {
-                    stack.setTag(handler.getStack().getTag());
+                    stack.applyComponents(handler.getStack().getComponents());
                 }
             }
             return EnergyBridge.convertFabricToForgeEnergy(extracted);

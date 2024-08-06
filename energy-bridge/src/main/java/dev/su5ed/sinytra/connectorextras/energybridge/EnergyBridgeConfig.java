@@ -1,15 +1,15 @@
 package dev.su5ed.sinytra.connectorextras.energybridge;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public final class EnergyBridgeConfig {
-    public static final ForgeConfigSpec COMMON_SPEC;
+    public static final ModConfigSpec COMMON_SPEC;
 
     public static final Common COMMON;
 
     static {
-        Pair<Common, ForgeConfigSpec> commonPair = new ForgeConfigSpec.Builder().configure(Common::new);
+        Pair<Common, ModConfigSpec> commonPair = new ModConfigSpec.Builder().configure(Common::new);
         COMMON = commonPair.getLeft();
         COMMON_SPEC = commonPair.getRight();
     }
@@ -18,10 +18,10 @@ public final class EnergyBridgeConfig {
     }
 
     public static final class Common {
-        public final ForgeConfigSpec.IntValue fabricToForgeEnergy;
-        public final ForgeConfigSpec.IntValue forgeToFabricEnergy;
+        public final ModConfigSpec.IntValue fabricToForgeEnergy;
+        public final ModConfigSpec.IntValue forgeToFabricEnergy;
 
-        private Common(ForgeConfigSpec.Builder builder) {
+        private Common(ModConfigSpec.Builder builder) {
             builder.push("general");
             this.fabricToForgeEnergy = builder
                 .comment("The amount of FE (Forge Energy) converted from 1 E (Team Reborn Energy). Setting the value to 0 disables this conversion.")
