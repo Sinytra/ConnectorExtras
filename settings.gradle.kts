@@ -29,7 +29,7 @@ include(
     "emi-bridge",
 //    "architectury-bridge",
     "terrablender-bridge",
-//    "modmenu-bridge",
+    "modmenu-bridge",
 //    "amecs-api",
 //    "forgeconfigapiport",
     "extras-utils",

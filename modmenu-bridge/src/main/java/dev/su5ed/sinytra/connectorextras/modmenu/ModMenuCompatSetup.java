@@ -5,9 +5,9 @@ import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraftforge.client.ConfigScreenHandler;
-import net.minecraftforge.client.gui.ModListScreen;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.client.gui.ModListScreen;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -49,9 +49,7 @@ public class ModMenuCompatSetup {
                 LOGGER.warn("Error testing config screen factory status for mod {}", modId, t);
             }
 
-            ModList.get().getModContainerById(modId).ifPresent(fmlContainer ->
-                fmlContainer.registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                    () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> factory.create(screen))));
+            ModList.get().getModContainerById(modId).ifPresent(fmlContainer -> fmlContainer.registerExtensionPoint(IConfigScreenFactory.class, (mod, screen) -> factory.create(screen)));
         });
     }
 }

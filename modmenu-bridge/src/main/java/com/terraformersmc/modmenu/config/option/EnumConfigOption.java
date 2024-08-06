@@ -55,13 +55,17 @@ public class EnumConfigOption<E extends Enum<E>> implements OptionConvertable {
 
 	@Override
 	public SimpleOption<E> asOption() {
-		return new SimpleOption<>(translationKey, SimpleOption.emptyTooltip(),
-				(text, value) -> getValueText(this, value),
-				new SimpleOption.PotentialValuesBasedCallbacks<>(Arrays.asList(enumClass.getEnumConstants()),
-						Codec.STRING.xmap(
-								string -> Arrays.stream(enumClass.getEnumConstants()).filter(e -> e.name().toLowerCase().equals(string)).findAny().orElse(null),
-								newValue -> newValue.name().toLowerCase()
-						)),
-				getValue(), value -> ConfigOptionStorage.setEnum(key, value));
+		return new SimpleOption<>(translationKey,
+			SimpleOption.emptyTooltip(),
+			(text, value) -> getValueText(this, value),
+			new SimpleOption.PotentialValuesBasedCallbacks<>(Arrays.asList(enumClass.getEnumConstants()),
+				Codec.STRING.xmap(string -> Arrays.stream(enumClass.getEnumConstants())
+					.filter(e -> e.name().toLowerCase().equals(string))
+					.findAny()
+					.orElse(null), newValue -> newValue.name().toLowerCase())
+			),
+			getValue(),
+			value -> ConfigOptionStorage.setEnum(key, value)
+		);
 	}
 }

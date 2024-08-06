@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.minecraftforge.client.gui.ModListScreen;
+import net.neoforged.neoforge.client.gui.ModListScreen;
 
 import java.util.Map;
 import java.util.function.Consumer;

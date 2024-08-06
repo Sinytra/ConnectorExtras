@@ -4,8 +4,8 @@ import com.mojang.logging.LogUtils;
 import cpw.mods.jarhandling.SecureJar;
 import cpw.mods.modlauncher.Launcher;
 import cpw.mods.modlauncher.api.IModuleLayerManager;
-import net.minecraftforge.fml.unsafe.UnsafeHacks;
 import org.slf4j.Logger;
+import sun.misc.Unsafe;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +25,15 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.jar.Manifest;
 
+import static cpw.mods.modlauncher.api.LambdaExceptionUtils.uncheck;
+
 public class HackyModuleInjector {
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Unsafe UNSAFE = uncheck(() -> {
+        Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
+        theUnsafe.setAccessible(true);
+        return (Unsafe) theUnsafe.get(null);
+    });
 
     public static boolean injectModuleSources(String moduleName, URL source) {
         try {
@@ -45,14 +52,14 @@ public class HackyModuleInjector {
             }
 
             Field jarField = jarModuleReference.getDeclaredField("jar");
-            SecureJar.ModuleDataProvider originalProvider = UnsafeHacks.getField(jarField, reference);
+            SecureJar.ModuleDataProvider originalProvider = (SecureJar.ModuleDataProvider) UNSAFE.getObject(reference, UNSAFE.objectFieldOffset(jarField));
             Path relocatePath = getRelocatedClassesPath(source);
             if (relocatePath == null) {
                 LOGGER.error("Source path for {} not found", moduleName);
                 return false;
             }
             SecureJar.ModuleDataProvider wrappedProvider = new ModuleDataProviderWrapper(originalProvider, relocatePath);
-            UnsafeHacks.setField(jarField, reference, wrappedProvider);
+            UNSAFE.putObject(reference, UNSAFE.objectFieldOffset(jarField), wrappedProvider);
 
             LOGGER.debug("Successfully injected source {} into module {}", source, moduleName);
             return true;

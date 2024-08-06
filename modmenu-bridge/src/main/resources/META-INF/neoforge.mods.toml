@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="*"
 license="MIT"
 issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
 
@@ -21,16 +21,17 @@ displayName = "ModMenu (Connector Extras)"
 description = '''
 Dummy mod provided by Connector Extras to allow mods detecting ModMenu to function as expected.
 '''
-
+[[mixins]]
+config="mixins.connectorextras_modmenu_bridge.json"
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="forge"
     mandatory=true
-    versionRange="[47,)"
+    versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1,1.21)"
+    versionRange="[1.21,1.22)"
     ordering="NONE"
     side="BOTH"

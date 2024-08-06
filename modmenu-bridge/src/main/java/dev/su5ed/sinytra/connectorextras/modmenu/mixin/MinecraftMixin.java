@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MinecraftClient.class)
 public class MinecraftMixin {
 
-    @Inject(method = "lambda$new$4", at = @At("HEAD"))
+    @Inject(method = "lambda$new$7", at = @At("HEAD"))
     private void initModMenuCompat(RealmsClient realmsclient, ResourceReload reloadinstance, RunArgs arg, CallbackInfo ci) {
         ModMenuCompatSetup.init();
     }

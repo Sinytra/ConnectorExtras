@@ -114,7 +114,7 @@ dependencies {
 //    includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
 //    includeProject("geckolib-fabric-compat")
-//    includeProject("modmenu-bridge")
+    includeProject("modmenu-bridge")
 //    includeProject("amecs-api")
 //    includeProject("forgeconfigapiport")
     includeProject("extras-utils")
@@ -123,7 +123,7 @@ dependencies {
 //    includeProject("pehkui-bridge")
 
     // Misc
-//    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
+    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {
