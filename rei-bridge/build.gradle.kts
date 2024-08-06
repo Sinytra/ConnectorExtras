@@ -2,33 +2,21 @@ plugins {
     id("dev.architectury.loom")
 }
 
-val versionMc: String by rootProject
 val versionForge: String by rootProject
 
-loom {
-    forge {
-        mixinConfig("mixins.reibridge.json")
-    }
-    mixin {
-        defaultRefmapName.set("refmap.reibridge.json")
-    }
-}
-
 repositories {
-    maven {
-        name = "RoughlyEnoughItems"
-        url = uri("https://maven.shedaniel.me")
-    }
+    maven("https://maven.shedaniel.me")
 }
 
 dependencies {
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:$versionMc-$versionForge")
+    neoForge("net.neoforged:neoforge:$versionForge")
 
-    modImplementation(group = "dev.su5ed.sinytra", name = "fabric-loader", version = "2.3.4+0.14.21+1.20.1")
-    modImplementation(group = "dev.su5ed.sinytra.fabric-api", name = "fabric-transfer-api-v1", version = "3.3.1+6acac45477")
+    modImplementation(group = "org.sinytra", name = "forgified-fabric-loader", version = "2.5.29+0.16.0+1.21")
+    modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-api-lookup-api-v1", version = "1.6.68+c21168c3d1")
+    modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-transfer-api-v1", version = "5.1.16+7f12564fd1")
 
-    modImplementation(group = "me.shedaniel", name = "RoughlyEnoughItems-forge", version = "12.0.652")
-    modRuntimeOnly(group = "dev.architectury", name = "architectury-forge", version = "9.1.12")
-    modRuntimeOnly(group = "me.shedaniel.cloth", name = "cloth-config-forge", version = "11.1.106")
+    modImplementation(group = "me.shedaniel", name = "RoughlyEnoughItems-neoforge", version = "16.0.744")
+    modRuntimeOnly(group = "dev.architectury", name = "architectury-neoforge", version = "13.0.6")
+    modRuntimeOnly(group = "me.shedaniel.cloth", name = "cloth-config-neoforge", version = "15.0.128")
 }

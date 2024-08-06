@@ -108,7 +108,7 @@ dependencies {
     neoForge("net.neoforged:neoforge:$versionForge")
 
 //    includeProject("reach-entity-attributes")
-//    includeProject("rei-bridge")
+    includeProject("rei-bridge")
 //    includeProject("emi-bridge")
 //    includeProject("energy-bridge")
 //    includeProject("architectury-bridge")

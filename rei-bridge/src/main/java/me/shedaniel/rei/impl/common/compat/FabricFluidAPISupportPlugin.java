@@ -36,7 +36,6 @@ import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class FabricFluidAPISupportPlugin implements REIServerPlugin {
@@ -44,12 +43,12 @@ public class FabricFluidAPISupportPlugin implements REIServerPlugin {
     public void registerFluidSupport(FluidSupportProvider support) {
         support.register(entry -> {
             ItemStack stack = entry.getValue().copy();
-            Storage<FluidVariant> storage = FluidStorage.ITEM.find(stack, ContainerItemContext.withInitial(stack));
+            Storage<FluidVariant> storage = FluidStorage.ITEM.find(stack, ContainerItemContext.withConstant(stack));
             if (storage != null) {
                 List<EntryStack<FluidStack>> result = StreamSupport.stream(storage.spliterator(), false)
                         .filter(view -> !view.isResourceBlank())
-                        .map(view -> EntryStacks.of(FluidStack.create(view.getResource().getFluid(), view.getAmount(), view.getResource().getNbt())))
-                        .collect(Collectors.toList());
+                        .map(view -> EntryStacks.of(FluidStack.create(view.getResource().getFluid(), view.getAmount(), view.getResource().getComponents())))
+                        .toList();
                 if (!result.isEmpty()) {
                     return CompoundEventResult.interruptTrue(result.stream());
                 }
