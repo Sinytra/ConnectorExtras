@@ -2,16 +2,8 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         maven {
-            name = "MinecraftForge"
-            url = uri("https://maven.minecraftforge.net")
-        }
-        maven {
             name = "NeoForged"
             url = uri("https://maven.neoforged.net")
-        }
-        maven {
-            name = "Sponge Snapshots"
-            url = uri("https://repo.spongepowered.org/repository/maven-public")
         }
         maven {
             name = "Architectury"
@@ -30,19 +22,18 @@ pluginManagement {
 rootProject.name = "ConnectorExtras"
 
 include(
-    "reach-entity-attributes",
-    "rei-bridge",
-    "energy-bridge",
-    "intermediary-deobf",
-    "emi-bridge",
-    "architectury-bridge",
+//    "reach-entity-attributes",
+//    "rei-bridge",
+//    "energy-bridge",
+//    "intermediary-deobf",
+//    "emi-bridge",
+//    "architectury-bridge",
     "terrablender-bridge",
-    "geckolib-fabric-compat",
-    "modmenu-bridge",
-    "amecs-api",
-    "forgeconfigapiport",
+//    "modmenu-bridge",
+//    "amecs-api",
+//    "forgeconfigapiport",
     "extras-utils",
-    "kubejs-bridge",
-    "jei-bridge",
-    "pehkui-bridge"
+//    "kubejs-bridge",
+//    "jei-bridge",
+//    "pehkui-bridge"
 )

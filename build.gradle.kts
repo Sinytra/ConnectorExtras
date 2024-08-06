@@ -9,8 +9,8 @@ import kotlin.io.path.exists
 
 plugins {
     java
-    id("dev.architectury.loom") version "1.3-SNAPSHOT"
-    id("me.modmuss50.mod-publish-plugin") version "0.3.+"
+    id("dev.architectury.loom") version "1.7-SNAPSHOT"
+    id("me.modmuss50.mod-publish-plugin") version "0.6.+"
     id("net.neoforged.gradleutils") version "2.0.+"
 }
 
@@ -40,11 +40,15 @@ allprojects {
     apply(plugin = "maven-publish")
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
         withSourcesJar()
     }
 
     repositories {
+        maven {
+            name = "NeoForge"
+            url = uri("https://maven.neoforged.net/releases")
+        }
         maven {
             name = "Sinytra"
             url = uri("https://maven.su5ed.dev/releases")
@@ -101,25 +105,25 @@ configurations.runtimeElements {
 
 dependencies {
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:$versionMc-$versionForge")
+    neoForge("net.neoforged:neoforge:$versionForge")
 
-    includeProject("reach-entity-attributes")
-    includeProject("rei-bridge")
-    includeProject("emi-bridge")
-    includeProject("energy-bridge")
-    includeProject("architectury-bridge")
+//    includeProject("reach-entity-attributes")
+//    includeProject("rei-bridge")
+//    includeProject("emi-bridge")
+//    includeProject("energy-bridge")
+//    includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
-    includeProject("geckolib-fabric-compat")
-    includeProject("modmenu-bridge")
-    includeProject("amecs-api")
-    includeProject("forgeconfigapiport")
+//    includeProject("geckolib-fabric-compat")
+//    includeProject("modmenu-bridge")
+//    includeProject("amecs-api")
+//    includeProject("forgeconfigapiport")
     includeProject("extras-utils")
-    includeProject("kubejs-bridge")
-    includeProject("jei-bridge")
-    includeProject("pehkui-bridge")
+//    includeProject("kubejs-bridge")
+//    includeProject("jei-bridge")
+//    includeProject("pehkui-bridge")
 
     // Misc
-    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
+//    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {
