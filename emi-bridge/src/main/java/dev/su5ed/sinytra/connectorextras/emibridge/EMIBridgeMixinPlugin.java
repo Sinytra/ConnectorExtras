@@ -1,7 +1,7 @@
 package dev.su5ed.sinytra.connectorextras.emibridge;
 
 import com.google.common.base.Suppliers;
-import net.minecraftforge.fml.loading.LoadingModList;
+import net.neoforged.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;

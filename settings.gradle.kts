@@ -26,7 +26,7 @@ include(
     "rei-bridge",
 //    "energy-bridge",
 //    "intermediary-deobf",
-//    "emi-bridge",
+    "emi-bridge",
 //    "architectury-bridge",
     "terrablender-bridge",
 //    "modmenu-bridge",

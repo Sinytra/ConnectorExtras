@@ -109,7 +109,7 @@ dependencies {
 
 //    includeProject("reach-entity-attributes")
     includeProject("rei-bridge")
-//    includeProject("emi-bridge")
+    includeProject("emi-bridge")
 //    includeProject("energy-bridge")
 //    includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
