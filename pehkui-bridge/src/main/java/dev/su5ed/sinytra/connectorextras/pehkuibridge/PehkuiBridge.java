@@ -1,6 +1,6 @@
 package dev.su5ed.sinytra.connectorextras.pehkuibridge;
 
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.Mod;
 
 @Mod("connectorextras_pehkui_bridge")
 public class PehkuiBridge {

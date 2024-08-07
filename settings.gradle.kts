@@ -35,5 +35,5 @@ include(
     "extras-utils",
 //    "kubejs-bridge",
     "jei-bridge",
-//    "pehkui-bridge"
+    "pehkui-bridge"
 )

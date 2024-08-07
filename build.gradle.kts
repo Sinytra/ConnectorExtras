@@ -119,7 +119,7 @@ dependencies {
     includeProject("extras-utils")
 //    includeProject("kubejs-bridge")
     includeProject("jei-bridge")
-//    includeProject("pehkui-bridge")
+    includeProject("pehkui-bridge")
 
     // Misc
     modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
