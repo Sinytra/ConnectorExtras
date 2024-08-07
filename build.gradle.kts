@@ -113,13 +113,12 @@ dependencies {
     includeProject("energy-bridge")
 //    includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
-//    includeProject("geckolib-fabric-compat")
     includeProject("modmenu-bridge")
 //    includeProject("amecs-api")
 //    includeProject("forgeconfigapiport")
     includeProject("extras-utils")
 //    includeProject("kubejs-bridge")
-//    includeProject("jei-bridge")
+    includeProject("jei-bridge")
 //    includeProject("pehkui-bridge")
 
     // Misc

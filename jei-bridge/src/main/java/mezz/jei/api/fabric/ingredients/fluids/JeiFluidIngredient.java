@@ -21,51 +21,23 @@
  * SOFTWARE.
  */
 
-package mezz.jei.api.fabric.constants;
+package mezz.jei.api.fabric.ingredients.fluids;
 
-import mezz.jei.api.fabric.ingredients.fluids.IJeiFluidIngredient;
-import mezz.jei.api.fabric.ingredients.fluids.JeiFluidIngredient;
-import mezz.jei.api.ingredients.IIngredientType;
-import mezz.jei.api.ingredients.IIngredientTypeWithSubtypes;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
-import net.minecraft.world.level.material.Fluid;
 
 /**
- * Built-in {@link IIngredientType} for Fabric Minecraft.
+ * A simple record type that implements {@link IJeiFluidIngredient}
  *
- * @since 10.1.0
+ * @since 19.5.6
  */
-public final class FabricTypes {
-	/**
-	 * @since 10.1.0
-	 */
-	public static final IIngredientTypeWithSubtypes<Fluid, IJeiFluidIngredient> FLUID_STACK = new IIngredientTypeWithSubtypes<>() {
-		@Override
-		public String getUid() {
-			return "fluid_stack";
-		}
+public record JeiFluidIngredient(FluidVariant fluid, long amount) implements IJeiFluidIngredient {
+	@Override
+	public FluidVariant getFluidVariant() {
+		return fluid;
+	}
 
-		@Override
-		public Class<? extends IJeiFluidIngredient> getIngredientClass() {
-			return IJeiFluidIngredient.class;
-		}
-
-		@Override
-		public Class<? extends Fluid> getIngredientBaseClass() {
-			return Fluid.class;
-		}
-
-		@Override
-		public Fluid getBase(IJeiFluidIngredient ingredient) {
-			return ingredient.getFluidVariant().getFluid();
-		}
-
-		@Override
-		public IJeiFluidIngredient getDefaultIngredient(Fluid base) {
-			return new JeiFluidIngredient(FluidVariant.of(base), FluidConstants.BUCKET);
-		}
-	};
-
-	private FabricTypes() {}
+	@Override
+	public long getAmount() {
+		return amount;
+	}
 }
