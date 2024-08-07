@@ -16,7 +16,7 @@ displayTest = 'IGNORE_ALL_VERSION'
 [[mixins]]
 config="mixins.emibridge.json"
 [[dependencies.connectorextras_emi_bridge]]
-    modId="forge"
+    modId="neoforge"
     mandatory=true
     versionRange="*"
     ordering="NONE"

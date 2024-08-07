@@ -111,7 +111,6 @@ dependencies {
     includeProject("rei-bridge")
     includeProject("emi-bridge")
     includeProject("energy-bridge")
-//    includeProject("architectury-bridge")
     includeProject("terrablender-bridge")
     includeProject("modmenu-bridge")
 //    includeProject("amecs-api")

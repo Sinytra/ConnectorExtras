@@ -27,7 +27,6 @@ include(
     "energy-bridge",
     "intermediary-deobf",
     "emi-bridge",
-//    "architectury-bridge",
     "terrablender-bridge",
     "modmenu-bridge",
 //    "amecs-api",
