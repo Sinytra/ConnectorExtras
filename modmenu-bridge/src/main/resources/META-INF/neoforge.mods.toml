@@ -24,7 +24,7 @@ Dummy mod provided by Connector Extras to allow mods detecting ModMenu to functi
 [[mixins]]
 config="mixins.connectorextras_modmenu_bridge.json"
 [[dependencies.connectorextras_modmenu_bridge]]
-    modId="forge"
+    modId="neoforge"
     mandatory=true
     versionRange="*"
     ordering="NONE"

@@ -121,7 +121,7 @@ dependencies {
     includeProject("pehkui-bridge")
 
     // Misc
-    modImplementation("curse.maven:mcpitanlibarch-682213:4723157")
+    modImplementation("curse.maven:mcpitanlibarch-682213:5531565")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {

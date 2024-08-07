@@ -10,7 +10,7 @@ public class ConnectorExtras {
 
     public ConnectorExtras(IEventBus bus) {
         if (ModList.get().isLoaded("mcpitanlibarch")) {
-//            MCPitanLibBridge.init(bus);
+            MCPitanLibBridge.init(bus);
         }
     }
 }

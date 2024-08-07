@@ -1,8 +1,8 @@
 package dev.su5ed.sinytra.connectorextras.misc;
 
-import ml.pkom.mcpitanlibarch.api.item.CreativeTabManager;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.pitan76.mcpitanlib.api.item.CreativeTabManager;
 
 public final class MCPitanLibBridge {
 
