@@ -15,13 +15,13 @@ A bridge between Forge Energy (FE) and Team Reborn's Energy API (E) that allows 
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_energy_bridge]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_energy_bridge]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="[1.21,1.22)"
     ordering="NONE"
     side="BOTH"

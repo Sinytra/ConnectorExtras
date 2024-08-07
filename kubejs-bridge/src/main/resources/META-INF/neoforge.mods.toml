@@ -17,25 +17,13 @@ displayTest = 'IGNORE_ALL_VERSION'
 config="mixins.connectorextras_kubejs_bridge.json"
 [[dependencies.connectorextras_kubejs_bridge]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_kubejs_bridge]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="[1.21,1.22)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.connectorextras_kubejs_bridge]]
-    modId="kubejs"
-    mandatory=false
-    versionRange="*"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.connectorextras_kubejs_bridge]]
-    modId="connector"
-    mandatory=false
-    versionRange="*"
     ordering="NONE"
     side="BOTH"

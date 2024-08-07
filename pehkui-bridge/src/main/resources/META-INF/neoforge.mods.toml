@@ -17,13 +17,13 @@ displayTest = 'IGNORE_ALL_VERSION'
 config="mixins.pehkuibridge.json"
 [[dependencies.connectorextras_pehkui_bridge]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_pehkui_bridge]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="[1.21,1.22)"
     ordering="NONE"
     side="BOTH"

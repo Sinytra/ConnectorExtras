@@ -25,13 +25,13 @@ Dummy mod provided by Connector Extras to allow mods detecting ModMenu to functi
 config="mixins.connectorextras_modmenu_bridge.json"
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="[1.21,1.22)"
     ordering="NONE"
     side="BOTH"

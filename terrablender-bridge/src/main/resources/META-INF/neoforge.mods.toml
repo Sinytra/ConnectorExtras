@@ -15,13 +15,13 @@ Loads TerraBlender Fabric API entrypoints of Fabric mods on Forge.
 displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_terrablender_bridge]]
     modId="neoforge"
-    mandatory=true
+    type="required"
     versionRange="*"
     ordering="NONE"
     side="BOTH"
 [[dependencies.connectorextras_terrablender_bridge]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="[1.21,1.22)"
     ordering="NONE"
     side="BOTH"
