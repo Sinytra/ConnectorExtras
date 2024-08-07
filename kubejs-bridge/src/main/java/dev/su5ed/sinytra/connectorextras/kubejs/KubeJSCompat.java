@@ -1,7 +1,7 @@
 package dev.su5ed.sinytra.connectorextras.kubejs;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.loading.LoadingModList;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.LoadingModList;
 
 @Mod(KubeJSCompat.MODID)
 public class KubeJSCompat {

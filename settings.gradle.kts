@@ -33,7 +33,7 @@ include(
 //    "amecs-api",
 //    "forgeconfigapiport",
     "extras-utils",
-//    "kubejs-bridge",
+    "kubejs-bridge",
     "jei-bridge",
     "pehkui-bridge"
 )

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = Main.class, priority = 100)
 public abstract class ServerMainMixin {
-    @Inject(method = "main", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/server/loading/ServerModLoader;load()V"), remap = false)
+    @Inject(method = "main", at = @At(value = "INVOKE", target = "Lnet/neoforged/neoforge/server/loading/ServerModLoader;load()V"), remap = false)
     private static void kubejsBridgeEarlyInit(CallbackInfo ci) {
         if (KubeJSCompat.isEnabled()) {
             KubeJSCompatSetup.initFabricPlugins();

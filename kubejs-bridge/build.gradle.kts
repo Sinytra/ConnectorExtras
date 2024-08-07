@@ -2,17 +2,7 @@ plugins {
     id("dev.architectury.loom")
 }
 
-val versionMc: String by rootProject
 val versionForge: String by rootProject
-
-loom {
-    forge {
-        mixinConfig("mixins.connectorextras_kubejs_bridge.json")
-    }
-    mixin {
-        defaultRefmapName.set("refmap.connectorextras_kubejs_bridge.json")
-    }
-}
 
 repositories {
     maven {
@@ -31,10 +21,10 @@ repositories {
 
 dependencies {
     mappings(loom.officialMojangMappings())
-    forge(group = "net.minecraftforge", name = "forge", version = "$versionMc-$versionForge")
+    neoForge("net.neoforged:neoforge:$versionForge")
 
-    modImplementation("org.sinytra:Connector:1.0.0-beta.44+1.20.1")
-    modImplementation("dev.latvian.mods:kubejs-forge:2001.6.4-build.111")
-    modImplementation("dev.latvian.mods:rhino-forge:2001.2.2-build.13")
-    modImplementation("dev.architectury:architectury-forge:9.1.12")
+    modImplementation("org.sinytra:connector:2.0.0-beta.1+1.21+dev-g2cf85c4")
+    modImplementation("dev.latvian.mods:kubejs-neoforge:2100.7.0-build.120")
+    modImplementation("dev.latvian.mods:rhino-neoforge:2006.2.4-build.17")
+    modImplementation(group = "dev.architectury", name = "architectury-neoforge", version = "13.0.6")
 }
