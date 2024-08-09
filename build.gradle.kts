@@ -180,7 +180,7 @@ publishMods {
     file.set(tasks.remapJar.flatMap { it.archiveFile })
     changelog.set(providers.environmentVariable("CHANGELOG").orElse("# $version"))
     type.set(providers.environmentVariable("PUBLISH_RELEASE_TYPE").orElse("alpha").map(ReleaseType::of))
-    modLoaders.add("forge")
+    modLoaders.add("neoforge")
     dryRun.set(!CI.isPresent)
 
     github {
