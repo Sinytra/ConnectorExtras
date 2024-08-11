@@ -2,7 +2,6 @@ plugins {
     id("dev.architectury.loom")
 }
 
-val versionMc: String by rootProject
 val versionForge: String by rootProject
 
 repositories {
@@ -17,5 +16,5 @@ dependencies {
     modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-api-lookup-api-v1", version = "1.6.68+c21168c3d1")
     modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-transfer-api-v1", version = "5.1.16+7f12564fd1")
 
-    modImplementation(group = "mezz.jei", name = "jei-$versionMc-neoforge", version = "19.7.0.90")
+    modImplementation(group = "mezz.jei", name = "jei-1.21-neoforge", version = "19.7.0.90")
 }

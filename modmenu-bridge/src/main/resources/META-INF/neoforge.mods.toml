@@ -16,7 +16,7 @@ displayTest = 'IGNORE_ALL_VERSION'
 
 [[mods]]
 modId = "modmenu"
-version = "7.2.2"
+version = "11.0.1"
 displayName = "ModMenu (Connector Extras)"
 description = '''
 Dummy mod provided by Connector Extras to allow mods detecting ModMenu to function as expected.
