@@ -12,7 +12,7 @@ repositories {
         }
     }
     maven {
-        url = uri("https://maven.saps.dev/minecraft")
+        url = uri("https://maven.latvian.dev/releases")
         content {
             includeGroup("dev.latvian.mods")
         }
