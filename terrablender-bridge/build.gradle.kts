@@ -1,27 +1,29 @@
-import org.gradle.jvm.tasks.Jar
-
-plugins {
-    id("dev.architectury.loom")
-}
-
-val versionForge: String by rootProject
-val relocateDirectory: Jar.(String, String) -> Unit by rootProject.extra
-
 repositories {
     maven("https://maven.minecraftforge.net")
 }
 
 dependencies {
-    mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:$versionForge")
+    implementation(project(":extras-utils"))
 
-    compileOnly(project(":extras-utils"))
-
-    modImplementation(group = "org.sinytra", name = "forgified-fabric-loader", version = "2.5.29+0.16.0+1.21")
-
-    modImplementation(group = "com.github.glitchfiend", name = "TerraBlender-forge", version = "1.20.1-3.0.0.167")
+    implementation("org.sinytra:forgified-fabric-loader:2.5.84+0.19.3+26.1.2")
+    implementation("com.github.glitchfiend:TerraBlender-neoforge:26.1.2-26.1.2.0.3")
 }
- 
-tasks.remapJar {
-    relocateDirectory(this, "terrablender/api", "relocate/terrablender/api")
+
+tasks {
+    compileJava {
+        doLast {
+            val classesDir = destinationDirectory
+            val outDir = classesDir.get().asFile
+            val src = File(outDir, "terrablender")
+            val dest = File(outDir, "relocated/terrablender")
+
+            if (src.exists()) {
+                dest.parentFile.mkdirs()
+                if (dest.exists()) dest.deleteRecursively()
+
+                src.copyRecursively(dest, overwrite = true)
+                src.deleteRecursively()
+            }
+        }
+    }
 }

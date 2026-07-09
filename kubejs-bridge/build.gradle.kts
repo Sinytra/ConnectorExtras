@@ -1,9 +1,3 @@
-plugins {
-    id("dev.architectury.loom")
-}
-
-val versionForge: String by rootProject
-
 repositories {
     maven {
         url = uri("https://maven.architectury.dev")
@@ -15,16 +9,22 @@ repositories {
         url = uri("https://maven.latvian.dev/releases")
         content {
             includeGroup("dev.latvian.mods")
+            includeGroup("dev.latvian.apps")
+        }
+    }
+    maven {
+        url = uri("https://maven.latvian.dev/mirror")
+        content {
+            includeGroup("com.github.rtyley")
         }
     }
 }
 
 dependencies {
-    mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:$versionForge")
+    implementation("org.sinytra:forgified-fabric-loader:2.5.84+0.19.3+26.1.2")
 
-    modImplementation("org.sinytra:connector:2.0.0-beta.1+1.21+dev-g2cf85c4")
-    modImplementation("dev.latvian.mods:kubejs-neoforge:2100.7.0-build.120")
-    modImplementation("dev.latvian.mods:rhino-neoforge:2006.2.4-build.17")
-    modImplementation(group = "dev.architectury", name = "architectury-neoforge", version = "13.0.6")
+    implementation("dev.latvian.mods:kubejs-neoforge:26.1.2-8.0.3")
+    implementation("dev.latvian.mods:rhino-neoforge:2006.2.4-build.17")
+
+    implementation("dev.architectury:architectury-neoforge:20.0.7")
 }

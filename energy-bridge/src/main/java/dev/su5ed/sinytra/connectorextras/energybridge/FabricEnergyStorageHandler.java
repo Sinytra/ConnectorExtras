@@ -1,85 +1,44 @@
 package dev.su5ed.sinytra.connectorextras.energybridge;
 
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.fabricmc.fabric.impl.transfer.compat.TransferCompatUtil;
+import net.neoforged.neoforge.transfer.energy.EnergyHandler;
+import net.neoforged.neoforge.transfer.transaction.TransactionContext;
 import team.reborn.energy.api.EnergyStorage;
 
-public class FabricEnergyStorageHandler implements IEnergyStorage {
+public class FabricEnergyStorageHandler implements EnergyHandler {
     private final EnergyStorage storage;
-    private final ItemStack stack;
-    private final FabricEnergySlotHandler handler;
 
     public FabricEnergyStorageHandler(EnergyStorage storage) {
         this.storage = storage;
-        this.stack = null;
-        this.handler = null;
-    }
-
-    public FabricEnergyStorageHandler(EnergyStorage storage, ItemStack stack, FabricEnergySlotHandler handler) {
-        this.storage = storage;
-        this.stack = stack;
-        this.handler = handler;
     }
 
     @Override
-    public int receiveEnergy(int amount, boolean simulate) {
-        if (Transaction.isOpen()) {
-            return 0;
-        }
-        try (Transaction transaction = Transaction.openOuter()) {
-            long e = EnergyBridge.convertForgeToFabricEnergy(amount);
-            long originalAmount = this.storage.getAmount();
-            long inserted = (int) this.storage.insert(e, transaction);
-            if (!simulate) {
-                transaction.commit();
-                if (stack != null) {
-                    stack.applyComponents(handler.getStack().getComponents());
-                }
-            } else if (stack != null && originalAmount == (this.storage.getAmount() - inserted)) {
-                //Some implementations just commit the transaction by themselves, so it must be reverted afterwards
-                //We can't just extract the energy because the storage could be insert-only
-                handler.setStack(stack);
-            }
-            return EnergyBridge.unConvertForgeToFabricEnergy(inserted);
-        }
-    }
-
-    @Override
-    public int extractEnergy(int amount, boolean simulate) {
-        if (Transaction.isOpen()) {
-            return 0;
-        }
-        try (Transaction transaction = Transaction.openOuter()) {
-            long e = EnergyBridge.unConvertFabricToForgeEnergy(amount);
-            long extracted = (int) this.storage.extract(e, transaction);
-            if (!simulate) {
-                transaction.commit();
-                if (stack != null) {
-                    stack.applyComponents(handler.getStack().getComponents());
-                }
-            }
-            return EnergyBridge.convertFabricToForgeEnergy(extracted);
-        }
-    }
-
-    @Override
-    public int getEnergyStored() {
+    public long getAmountAsLong() {
         return EnergyBridge.convertFabricToForgeEnergy(this.storage.getAmount());
     }
 
     @Override
-    public int getMaxEnergyStored() {
+    public long getCapacityAsLong() {
         return EnergyBridge.convertFabricToForgeEnergy(this.storage.getCapacity());
     }
 
     @Override
-    public boolean canExtract() {
-        return this.storage.supportsExtraction();
+    public int insert(int amount, TransactionContext transaction) {
+        if (!this.storage.supportsInsertion()) {
+            return 0;
+        }
+        long e = EnergyBridge.unConvertFabricToForgeEnergy(amount);
+        long inserted = this.storage.extract(e, TransferCompatUtil.toFabricCtx(transaction));
+        return EnergyBridge.convertFabricToForgeEnergy(inserted);
     }
 
     @Override
-    public boolean canReceive() {
-        return this.storage.supportsInsertion();
+    public int extract(int amount, TransactionContext transaction) {
+        if (!this.storage.supportsExtraction()) {
+            return 0;
+        }
+        long e = EnergyBridge.unConvertFabricToForgeEnergy(amount);
+        long extracted = this.storage.extract(e, TransferCompatUtil.toFabricCtx(transaction));
+        return EnergyBridge.convertFabricToForgeEnergy(extracted);
     }
 }

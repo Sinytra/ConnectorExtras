@@ -12,7 +12,7 @@ displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 Loads TerraBlender Fabric API entrypoints of Fabric mods on Forge.
 '''
-displayTest = 'IGNORE_ALL_VERSION'
+
 [[dependencies.connectorextras_terrablender_bridge]]
     modId="neoforge"
     type="required"
@@ -22,6 +22,6 @@ displayTest = 'IGNORE_ALL_VERSION'
 [[dependencies.connectorextras_terrablender_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21,1.22)"
+    versionRange="[26.1,26.2)"
     ordering="NONE"
     side="BOTH"

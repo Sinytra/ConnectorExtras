@@ -1,9 +1,9 @@
 {
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_25",
   "required": true,
-  "package": "dev.su5ed.sinytra.connectorextras.reibridge.mixin",
-  "plugin": "dev.su5ed.sinytra.connectorextras.reibridge.REIBridgeMixinPlugin",
+  "package": "org.sinytra.connectorextras.reibridge.mixin",
+  "plugin": "org.sinytra.connectorextras.reibridge.REIBridgeMixinPlugin",
   "client": [
     "client.RoughlyEnoughItemsCoreClientMixin"
   ],

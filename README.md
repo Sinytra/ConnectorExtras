@@ -64,10 +64,6 @@ Integrates ModMenu the config screen factory with Forge's mod list gui. Includes
 [ModMenu API](https://github.com/TerraformersMC/ModMenu/tree/91460879c6d0693b14d1632baccea56bf3619f2e/src/main/java/com/terraformersmc/modmenu/api),
 licensed under the MIT license.
 
-### KubeJS Bridge
-
-Provides KubeJS plugin support for Fabric mods on Forge by initializing them earlier.
-
 ### Amecs API - Forge port
 
 A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)

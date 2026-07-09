@@ -47,21 +47,21 @@ public class PluginDetectorImpl implements PluginDetector {
         entrypoints.put("rei", null);
         entrypoints.put("rei_client", Env.CLIENT);
         Set<String> deprecatedEntrypoints = new LinkedHashSet<>(Arrays.asList(
-                "rei_containers",
-                "rei_plugins",
-                "rei_plugins_v0",
-                "rei"
+            "rei_containers",
+            "rei_plugins",
+            "rei_plugins_v0",
+            "rei"
         ));
         List<Pair<EntrypointContainer<REIPluginProvider>, String>> containers = Stream.concat(entrypoints.entrySet().stream()
-                                .filter(entry -> entry.getValue() == null || Platform.getEnvironment() == entry.getValue())
-                                .map(Map.Entry::getKey)
-                        , deprecatedEntrypoints.stream())
-                .distinct()
-                .flatMap(name -> FabricLoader.getInstance().getEntrypointContainers(name, REIPluginProvider.class)
-                        .stream()
-                        .map(container -> Pair.of(container, name)))
-                .collect(Collectors.toList());
-        
+                    .filter(entry -> entry.getValue() == null || Platform.getEnvironment() == entry.getValue())
+                    .map(Map.Entry::getKey)
+                , deprecatedEntrypoints.stream())
+            .distinct()
+            .flatMap(name -> FabricLoader.getInstance().getEntrypointContainers(name, REIPluginProvider.class)
+                .stream()
+                .map(container -> Pair.of(container, name)))
+            .collect(Collectors.toList());
+
         out:
         for (Pair<EntrypointContainer<REIPluginProvider>, String> pair : containers) {
             EntrypointContainer<REIPluginProvider> container = pair.getLeft();
@@ -70,7 +70,7 @@ public class PluginDetectorImpl implements PluginDetector {
                 if (deprecatedEntrypoints.contains(name)) {
                     RoughlyEnoughItemsState.warn("The entrypoint used by %s, \"%s\" is deprecated and will be removed in a future version of Roughly Enough Items. Please use \"rei_server\", \"rei_client\" or \"rei_common\" instead.".formatted(container.getProvider().getMetadata().getName(), name));
                 }
-                
+
                 REIPluginProvider<P> plugin = container.getEntrypoint();
                 if (pluginClass.isAssignableFrom(plugin.getPluginProviderClass())) {
                     consumer.accept(new REIPluginProvider<>() {
@@ -78,12 +78,12 @@ public class PluginDetectorImpl implements PluginDetector {
                         public Collection<P> provide() {
                             return plugin.provide();
                         }
-                        
+
                         @Override
                         public Class<P> getPluginProviderClass() {
                             return plugin.getPluginProviderClass();
                         }
-                        
+
                         @Override
                         public String getPluginProviderName() {
                             return plugin.getPluginProviderName() + " [" + container.getProvider().getMetadata().getId() + "]";
@@ -105,29 +105,24 @@ public class PluginDetectorImpl implements PluginDetector {
             }
         }
     }
-    
+
     private static <P> String getSimpleName(Class<? extends P> pluginClass) {
         String simpleName = pluginClass.getSimpleName();
         if (simpleName == null) return pluginClass.getName();
         return simpleName;
     }
-    
+
+    @SuppressWarnings({"RedundantCast", "rawtypes", "unchecked", "UnstableApiUsage"})
     @Override
-    public void detectServerPlugins() {
-        loadPlugin(REIServerPlugin.class, ((PluginView<REIServerPlugin>) PluginManager.getServerInstance())::registerPlugin);
+    public void detectCommonPlugins() {
+        loadPlugin((Class<? extends REICommonPlugin>) (Class) REICommonPlugin.class, PluginManager.getInstance().view()::registerPlugin);
         try {
-            PluginView.getServerInstance().registerPlugin((REIServerPlugin) Class.forName("me.shedaniel.rei.impl.common.compat.FabricFluidAPISupportPlugin").getConstructor().newInstance());
+            PluginView.getInstance().registerPlugin((REICommonPlugin) Class.forName("me.shedaniel.rei.impl.common.compat.FabricFluidAPISupportPlugin").getConstructor().newInstance());
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
     }
-    
-    @SuppressWarnings({"RedundantCast", "rawtypes"})
-    @Override
-    public void detectCommonPlugins() {
-        loadPlugin((Class<? extends REIPlugin<?>>) (Class) REIPlugin.class, ((PluginView<REIPlugin<?>>) PluginManager.getInstance())::registerPlugin);
-    }
-    
+
     @Override
     public Supplier<Runnable> detectClientPlugins() {
         return () -> ClientPluginDetector::detectClientPlugins;

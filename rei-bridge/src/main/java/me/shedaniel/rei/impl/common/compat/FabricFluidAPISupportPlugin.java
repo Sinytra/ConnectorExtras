@@ -27,7 +27,7 @@ import dev.architectury.event.CompoundEventResult;
 import dev.architectury.fluid.FluidStack;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.fluid.FluidSupportProvider;
-import me.shedaniel.rei.api.common.plugins.REIServerPlugin;
+import me.shedaniel.rei.api.common.plugins.REICommonPlugin;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
@@ -38,7 +38,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
-public class FabricFluidAPISupportPlugin implements REIServerPlugin {
+public class FabricFluidAPISupportPlugin implements REICommonPlugin {
     @Override
     public void registerFluidSupport(FluidSupportProvider support) {
         support.register(entry -> {
@@ -47,7 +47,9 @@ public class FabricFluidAPISupportPlugin implements REIServerPlugin {
             if (storage != null) {
                 List<EntryStack<FluidStack>> result = StreamSupport.stream(storage.spliterator(), false)
                         .filter(view -> !view.isResourceBlank())
-                        .map(view -> EntryStacks.of(FluidStack.create(view.getResource().getFluid(), view.getAmount(), view.getResource().getComponents())))
+                        .map(view -> EntryStacks.of(
+                            FluidStack.create(view.getResource().typeHolder(), view.getAmount(), view.getResource().getComponentsPatch()))
+                        )
                         .toList();
                 if (!result.isEmpty()) {
                     return CompoundEventResult.interruptTrue(result.stream());

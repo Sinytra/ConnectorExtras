@@ -1,20 +1,11 @@
-plugins {
-    id("dev.architectury.loom")
-}
-
-val versionForge: String by rootProject
-
 repositories {
     maven("https://maven.blamejared.com/")
 }
 
 dependencies {
-    mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:$versionForge")
+    implementation("org.sinytra:forgified-fabric-loader:2.5.84+0.19.3+26.1.2")
+    implementation("org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:2.0.12+29e133704c")
+    implementation("org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:8.0.6+7b5559184c")
 
-    implementation(group = "org.sinytra", name = "forgified-fabric-loader", version = "2.5.29+0.16.0+1.21")
-    modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-api-lookup-api-v1", version = "1.6.68+c21168c3d1")
-    modImplementation(group = "org.sinytra.forgified-fabric-api", name = "fabric-transfer-api-v1", version = "5.1.16+7f12564fd1")
-
-    modImplementation(group = "mezz.jei", name = "jei-1.21-neoforge", version = "19.7.0.90")
+    implementation("mezz.jei:jei-26.1.2-neoforge:29.6.2.38")
 }

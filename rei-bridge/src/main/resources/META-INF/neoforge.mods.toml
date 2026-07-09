@@ -12,9 +12,10 @@ displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 Runs REI's Fabric plugin detector on Forge in addition to the default one, allowing it to load plugins from mods of both platforms at once.
 '''
-displayTest = 'IGNORE_ALL_VERSION'
+
 [[mixins]]
 config="mixins.reibridge.json"
+
 [[dependencies.connectorextras_rei_bridge]]
     modId="neoforge"
     type="required"
@@ -24,6 +25,6 @@ config="mixins.reibridge.json"
 [[dependencies.connectorextras_rei_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21,1.22)"
+    versionRange="[26.1,26.2)"
     ordering="NONE"
     side="BOTH"

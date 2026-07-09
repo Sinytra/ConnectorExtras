@@ -12,9 +12,10 @@ displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 Provides KubeJS plugin support for Fabric mods on Forge
 '''
-displayTest = 'IGNORE_ALL_VERSION'
+
 [[mixins]]
 config="mixins.connectorextras_kubejs_bridge.json"
+
 [[dependencies.connectorextras_kubejs_bridge]]
     modId="neoforge"
     type="required"
@@ -24,6 +25,6 @@ config="mixins.connectorextras_kubejs_bridge.json"
 [[dependencies.connectorextras_kubejs_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21,1.22)"
+    versionRange="[26.1,26.2)"
     ordering="NONE"
     side="BOTH"

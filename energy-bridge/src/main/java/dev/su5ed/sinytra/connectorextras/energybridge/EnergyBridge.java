@@ -27,7 +27,7 @@ public class EnergyBridge {
         return convertBackwards(amount, EnergyBridgeConfig.COMMON.fabricToForgeEnergy);
     }
 
-    public static long convertForgeToFabricEnergy(int amount) {
+    public static long convertForgeToFabricEnergy(long amount) {
         return convertBackwards(amount, EnergyBridgeConfig.COMMON.forgeToFabricEnergy);
     }
 
@@ -46,7 +46,7 @@ public class EnergyBridge {
         return Ints.saturatedCast(fe);
     }
 
-    private static long convertBackwards(int amount, ModConfigSpec.IntValue ratio) {
+    private static long convertBackwards(long amount, ModConfigSpec.IntValue ratio) {
         int value = ratio.get();
         return value == 0 ? 0 : amount / value;
     }
