@@ -2,9 +2,9 @@
 
 [![Build](https://github.com/Sinytra/ConnectorExtras/actions/workflows/build.yml/badge.svg)](https://github.com/Sinytra/ConnectorExtras/actions/workflows/build.yml)
 [![GitHub Releases](https://img.shields.io/github/v/release/Sinytra/ConnectorExtras?style=flat&label=Release&include_prereleases&sort=semver)](https://github.com/Sinytra/ConnectorExtras/releases/latest)
-[![CurseForge](https://cf.way2muchnoise.eu/title/connector-extras.svg)](https://legacy.curseforge.com/minecraft/mc-mods/connector-extras)
+[![CurseForge](https://cf.way2muchnoise.eu/short_connector-extras.svg)](https://legacy.curseforge.com/minecraft/mc-mods/connector-extras)
 [![Modrinth](https://img.shields.io/modrinth/dt/FYpiwiBR?color=00AF5C&label=modrinth&style=flat&logo=modrinth)](https://modrinth.com/mod/connector-extras)
-[![Discord](https://discordapp.com/api/guilds/1141048834177388746/widget.png?style=shield)](https://discord.gg/mamk7z3TKZ)
+[![Discord](https://img.shields.io/discord/1141048834177388746?logo=discord&logoColor=white&label=Discord&color=5865f2)](https://discord.gg/mamk7z3TKZ)
 
 ## About
 

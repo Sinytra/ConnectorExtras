@@ -146,6 +146,8 @@ publishMods {
         accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
         projectId.set(curseForgeId)
         minecraftVersions.add(versionMc)
+        client.set(true)
+        server.set(true)
         requires {
             slug.set(connectorCurseForge)
         }
