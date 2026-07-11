@@ -22,15 +22,12 @@ pluginManagement {
 rootProject.name = "ConnectorExtras"
 
 include(
-//    "reach-entity-attributes",
     "rei-bridge",
     "energy-bridge",
     "intermediary-deobf",
     "emi-bridge",
     "terrablender-bridge",
     "modmenu-bridge",
-//    "amecs-api",
-//    "forgeconfigapiport",
     "extras-utils",
     "kubejs-bridge",
     "jei-bridge",

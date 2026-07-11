@@ -1,4 +1,0 @@
-{
-  "inventoryValidationHook": "META-INF/asm/inventoryValidationHook.js",
-  "vehicleInventoryAttackRangeHook": "META-INF/asm/vehicleInventoryAttackRangeHook.js"
-}
