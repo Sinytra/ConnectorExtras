@@ -4,7 +4,7 @@
 [![GitHub Releases](https://img.shields.io/github/v/release/Sinytra/ConnectorExtras?style=flat&label=Release&include_prereleases&sort=semver)](https://github.com/Sinytra/ConnectorExtras/releases/latest)
 [![CurseForge](https://cf.way2muchnoise.eu/title/connector-extras.svg)](https://legacy.curseforge.com/minecraft/mc-mods/connector-extras)
 [![Modrinth](https://img.shields.io/modrinth/dt/FYpiwiBR?color=00AF5C&label=modrinth&style=flat&logo=modrinth)](https://modrinth.com/mod/connector-extras)
-[![Discord](https://discordapp.com/api/guilds/1141048834177388746/widget.png?style=shield)](https://discord.gg/mamk7z3TKZ)
+[![Discord](https://img.shields.io/discord/1141048834177388746?logo=discord&logoColor=white&label=Discord&color=5865f2)](https://discord.sinytra.org)
 
 ## About
 
@@ -47,10 +47,6 @@ A Forge port of the Fabric [Reach Entity Attributes](https://github.com/JamiesWh
 library, implemented alongside Forge's own reach attributes. Allows for compatiblity with Fabric mods that require it,
 but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
 
-### Architectury API Bridge
-
-Registers mod event buses of Fabric mods to Architectury Forge to avoid registry init issues.
-
 ### Terrablender Bridge
 
 Runs the `terrablender` of Fabric mods on Forge, making their usage with the Forge version
@@ -67,19 +63,6 @@ licensed under the MIT license.
 ### KubeJS Bridge
 
 Provides KubeJS plugin support for Fabric mods on Forge by initializing them earlier.
-
-### Amecs API - Forge port
-
-A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)
-library, implemented alongside Forge's key modifier system. Allows for compatiblity with Fabric mods that require it,
-but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
-
-### Forge Config API Port - Forge bridge
-
-A clean implementation of [Forge Config API Port](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric)
-on Forge, allowing Fabric mods to easily access the Forge config system and register their own configs.
-Includes the [Forge Config API Port API](https://github.com/Fuzss/forgeconfigapiport/tree/8dbbc0d49afb46928a1dfc0c7f828af06da1638d/Fabric/src/main/java/fuzs/forgeconfigapiport/api/config/v2),
-licensed under the MPL-2.0 license.
 
 ## Get help
 
