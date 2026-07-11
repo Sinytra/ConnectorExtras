@@ -1,4 +1,4 @@
-package dev.su5ed.sinytra.connectorextras.misc;
+package org.sinytra.connectorextras.misc;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;

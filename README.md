@@ -48,16 +48,10 @@ Integrates ModMenu the config screen factory with Forge's mod list gui. Includes
 [ModMenu API](https://github.com/TerraformersMC/ModMenu/tree/91460879c6d0693b14d1632baccea56bf3619f2e/src/main/java/com/terraformersmc/modmenu/api),
 licensed under the MIT license.
 
-### Amecs API - Forge port
-
-A Forge port of the Fabric [Amecs API](https://github.com/Siphalor/amecs-api)
-library, implemented alongside Forge's key modifier system. Allows for compatiblity with Fabric mods that require it,
-but wouldn't otherwise be compatible due to the heavy forge mixin conflicts of the original version.
-
 ### Forge Config API Port - Forge bridge
 
-A clean implementation of [Forge Config API Port](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric)
-on Forge, allowing Fabric mods to easily access the Forge config system and register their own configs.
+An implementation of the [Forge Config API Port](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric)
+Fabric API on NeoForge, allowing Fabric mods to easily access the NeoForge config system and register their own configs.
 Includes the [Forge Config API Port API](https://github.com/Fuzss/forgeconfigapiport/tree/8dbbc0d49afb46928a1dfc0c7f828af06da1638d/Fabric/src/main/java/fuzs/forgeconfigapiport/api/config/v2),
 licensed under the MPL-2.0 license.
 
@@ -91,7 +85,7 @@ Connector Extras is distributed on the following platforms:
 ## License
 
 Connector Extras is licensed under the MIT license, but may include other projects licensed under different terms.
-Please check each subfolder for exact licensing information.
+Please check each file for exact licensing information.
 
 ## Contributing
 

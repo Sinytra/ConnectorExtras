@@ -1,6 +1,6 @@
-package dev.su5ed.sinytra.connectorextras;
+package org.sinytra.connectorextras;
 
-import dev.su5ed.sinytra.connectorextras.misc.MCPitanLibBridge;
+import org.sinytra.connectorextras.misc.MCPitanLibBridge;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;

@@ -23,7 +23,6 @@ include(
 //    "emi-bridge",
     "terrablender-bridge",
     "modmenu-bridge",
-//    "amecs-api",
     "forgeconfigapiport",
     "extras-utils",
     "jei-bridge"

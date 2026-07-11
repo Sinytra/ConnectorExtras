@@ -111,21 +111,17 @@ subprojects {
 }
 
 dependencies {
-//    includeProject("reach-entity-attributes")
     includeProject("rei-bridge")
 //    includeProject("emi-bridge")
-//    includeProject("energy-bridge")
-//    includeProject("terrablender-bridge")
-//    includeProject("modmenu-bridge")
-//    includeProject("amecs-api")
-//    includeProject("forgeconfigapiport")
-//    includeProject("extras-utils")
-//    includeProject("kubejs-bridge")
-//    includeProject("jei-bridge")
-//    includeProject("pehkui-bridge")
+    includeProject("energy-bridge")
+    includeProject("terrablender-bridge")
+    includeProject("modmenu-bridge")
+    includeProject("forgeconfigapiport")
+    includeProject("extras-utils")
+    includeProject("jei-bridge")
 
     // Misc
-//    modImplementation("curse.maven:mcpitanlibarch-682213:5531565")
+    implementation("curse.maven:mcpitanlibarch-682213:8322093")
 }
 
 fun DependencyHandlerScope.includeProject(name: String) {
@@ -154,13 +150,11 @@ publishMods {
             slug.set(connectorCurseForge)
         }
         optional { slug.set("roughly-enough-items") }
-        optional { slug.set("emi") }
+//        optional { slug.set("emi") }
         optional { slug.set("terrablender") }
-        optional { slug.set("architectury-api") }
-        optional { slug.set("geckolib") }
-        optional { slug.set("kubejs") }
+        optional { slug.set("modmenu") }
+        optional { slug.set("forge-config-api-port") }
         optional { slug.set("jei") }
-        optional { slug.set("pehkui") }
     }
     modrinth {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
@@ -170,12 +164,10 @@ publishMods {
             id.set(connectorModrinth)
         }
         optional { id.set("nfn13YXA") } // REI
-        optional { id.set("fRiHVvU7") } // EMI
+//        optional { id.set("fRiHVvU7") } // EMI
         optional { id.set("kkmrDlKT") } // TerraBlender
-        optional { id.set("lhGA9TYQ") } // Architectury API
-        optional { id.set("8BmcQJ2H") } // Geckolib
-        optional { id.set("umyGl7zF") } // KubeJS
+        optional { id.set("mOgUt4GM") } // Mod Menu
+        optional { id.set("ohNO6lps") } // Forge Config API Port
         optional { id.set("u6dRKJwZ") } // JEI
-        optional { id.set("t5W7Jfwy") } // Pehkui
     }
 }
