@@ -1,4 +1,5 @@
 import me.modmuss50.mpp.ReleaseType
+import org.gradle.kotlin.dsl.get
 
 plugins {
     java
@@ -124,10 +125,15 @@ dependencies {
     implementation("curse.maven:mcpitanlibarch-682213:8322093")
 }
 
-fun DependencyHandlerScope.includeProject(name: String) {
-    api(jarJar(project(":$name")) {
-        isTransitive = false
-    })
+tasks {
+    jar {
+        doLast {
+            val githubOutput = System.getenv("GITHUB_OUTPUT")
+            if (githubOutput != null) {
+                File(githubOutput).appendText("PRIMARY_ARTIFACT=${archiveFile.get().asFile.absolutePath}")
+            }
+        }
+    }
 }
 
 publishMods {
@@ -172,4 +178,10 @@ publishMods {
         optional { id.set("ohNO6lps") } // Forge Config API Port
         optional { id.set("u6dRKJwZ") } // JEI
     }
+}
+
+fun DependencyHandlerScope.includeProject(name: String) {
+    api(jarJar(project(":$name")) {
+        isTransitive = false
+    })
 }
