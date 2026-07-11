@@ -1,8 +1,8 @@
 {
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_25",
   "required": true,
-  "package": "dev.su5ed.sinytra.connectorextras.modmenu.mixin",
+  "package": "org.sinytra.connectorextras.modmenu.mixin",
   "client": [
     "MinecraftMixin"
   ]

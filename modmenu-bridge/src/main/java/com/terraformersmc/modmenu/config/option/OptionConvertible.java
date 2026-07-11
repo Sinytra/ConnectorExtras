@@ -21,11 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.terraformersmc.modmenu.api;
+package com.terraformersmc.modmenu.config.option;
 
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.OptionInstance;
 
-@FunctionalInterface
-public interface ConfigScreenFactory<S extends Screen> {
-    S create(Screen parent);
+public interface OptionConvertible {
+    OptionInstance<?> asOption();
 }

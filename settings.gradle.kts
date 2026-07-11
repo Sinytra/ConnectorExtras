@@ -6,10 +6,6 @@ pluginManagement {
             url = uri("https://maven.neoforged.net/releases")
         }
         maven {
-            name = "Architectury"
-            url = uri("https://maven.architectury.dev")
-        }
-        maven {
             name = "FabricMC"
             url = uri("https://maven.fabricmc.net")
         }
@@ -26,9 +22,9 @@ include(
     "energy-bridge",
 //    "emi-bridge",
     "terrablender-bridge",
-//    "modmenu-bridge",
+    "modmenu-bridge",
 //    "amecs-api",
-//    "forgeconfigapiport",
+    "forgeconfigapiport",
     "extras-utils",
     "jei-bridge"
 )

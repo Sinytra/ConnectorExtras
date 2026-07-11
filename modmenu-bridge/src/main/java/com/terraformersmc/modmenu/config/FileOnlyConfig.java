@@ -21,11 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.terraformersmc.modmenu.api;
+package com.terraformersmc.modmenu.config;
 
-import net.minecraft.client.gui.screens.Screen;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@FunctionalInterface
-public interface ConfigScreenFactory<S extends Screen> {
-    S create(Screen parent);
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface FileOnlyConfig {
 }

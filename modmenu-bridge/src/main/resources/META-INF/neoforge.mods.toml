@@ -12,7 +12,6 @@ displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 Integrates ModMenu the config screen factory with Forge's mod list gui.
 '''
-displayTest = 'IGNORE_ALL_VERSION'
 
 [[mods]]
 modId = "modmenu"
@@ -21,8 +20,10 @@ displayName = "ModMenu (Connector Extras)"
 description = '''
 Dummy mod provided by Connector Extras to allow mods detecting ModMenu to function as expected.
 '''
+
 [[mixins]]
 config="mixins.connectorextras_modmenu_bridge.json"
+
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="neoforge"
     type="required"
@@ -32,6 +33,6 @@ config="mixins.connectorextras_modmenu_bridge.json"
 [[dependencies.connectorextras_modmenu_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21,1.22)"
+    versionRange="[26.1,26.2)"
     ordering="NONE"
     side="BOTH"

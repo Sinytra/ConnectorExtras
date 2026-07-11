@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="*"
+license="MIT"
+issueTrackerURL="https://github.com/Sinytra/ConnectorExtras/issues"
+
+[[mods]]
+modId="connectorextras_forgeconfigapiport"
+version="${file.jarVersion}"
+displayName="Forge Config API Port ConnectorExtras Bridge"
+authors="Su5eD"
+displayURL="https://github.com/Sinytra/ConnectorExtras"
+description='''
+Provides compat for Forge Config API Port (Fabric)
+'''
+
+[[dependencies.connectorextras_forgeconfigapiport]]
+    modId="forgeconfigapiport"
+    type="optional"
+    versionRange="*"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.connectorextras_forgeconfigapiport]]
+    modId="neoforge"
+    type="required"
+    versionRange="*"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.connectorextras_forgeconfigapiport]]
+    modId="minecraft"
+    type="required"
+    versionRange="[26.1,26.2)"
+    ordering="NONE"
+    side="BOTH"

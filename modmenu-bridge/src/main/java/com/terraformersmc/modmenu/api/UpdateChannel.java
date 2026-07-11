@@ -23,9 +23,18 @@
  */
 package com.terraformersmc.modmenu.api;
 
-import net.minecraft.client.gui.screens.Screen;
+/**
+ * Supported update channels, in ascending order by stability.
+ */
+public enum UpdateChannel {
+    ALPHA,
+    BETA,
+    RELEASE;
 
-@FunctionalInterface
-public interface ConfigScreenFactory<S extends Screen> {
-    S create(Screen parent);
+    /**
+     * @return the user's preferred update channel.
+     */
+    public static UpdateChannel getUserPreference() {
+        return UpdateChannel.RELEASE;
+    }
 }
