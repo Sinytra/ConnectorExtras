@@ -9,7 +9,7 @@ import kotlin.io.path.exists
 
 plugins {
     java
-    id("dev.architectury.loom") version "1.7-SNAPSHOT"
+    id("dev.architectury.loom") version "1.14-SNAPSHOT"
     id("me.modmuss50.mod-publish-plugin") version "0.6.+"
     id("net.neoforged.gradleutils") version "2.0.+"
 }
@@ -69,10 +69,6 @@ allprojects {
     tasks {
         jar {
             manifest.attributes("Implementation-Version" to provider { project.version })
-        }
-
-        withType<net.fabricmc.loom.task.AbstractRemapJarTask> {
-            remapperIsolation.set(false)
         }
     }
     
