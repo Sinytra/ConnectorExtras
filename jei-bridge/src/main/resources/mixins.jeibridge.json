@@ -5,6 +5,7 @@
   "package": "org.sinytra.connectorextras.jeibridge.mixin",
   "plugin": "org.sinytra.connectorextras.jeibridge.JEIBridgeMixinPlugin",
   "mixins": [
-    "ForgePluginFinderMixin"
+    "JeiStarterMixin",
+    "JustEnoughItemsClientMixin"
   ]
 }
