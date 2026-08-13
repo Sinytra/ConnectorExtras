@@ -5,6 +5,7 @@ import mezz.jei.library.startup.JeiStarter;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforgespi.language.IModFileInfo;
 
 import java.util.List;
 
