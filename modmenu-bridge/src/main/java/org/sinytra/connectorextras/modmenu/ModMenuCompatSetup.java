@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screens.Screen;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.client.gui.ModListScreen;
+import net.neoforged.neoforge.client.gui.modlist.ModListScreen;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class ModMenuCompatSetup {
         providedFactories.forEach(map -> map.forEach(modFactories::putIfAbsent));
         providedFactories.clear();
 
-        Screen dummyParent = new ModListScreen(null);
+        Screen dummyParent = ModListScreen.create(null);
         modFactories.forEach((modId, factory) -> {
             // Ensure factory is active. This is required to avoid cases where the integration conditionally
             // disables itself (e.g. when cloth config is absent) and returns a dummy factory.

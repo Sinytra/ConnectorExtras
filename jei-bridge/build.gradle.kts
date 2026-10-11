@@ -3,9 +3,9 @@ repositories {
 }
 
 dependencies {
-    implementation("org.sinytra:forgified-fabric-loader:2.5.84+0.19.3+26.1.2")
-    implementation("org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:2.0.12+29e133704c")
-    implementation("org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:8.0.6+6fa9936c4c")
+    implementation("org.sinytra:forgified-fabric-loader:2.5.90+0.19.5+26.1.2")
+    implementation("org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:2.0.18+5f5192e39e")
+    implementation("org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:8.0.13+d6727f829e")
 
     implementation("mezz.jei:jei-26.1.2-neoforge:29.6.2.38")
 }

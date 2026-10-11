@@ -22,6 +22,6 @@ Loads TerraBlender Fabric API entrypoints of Fabric mods on Forge.
 [[dependencies.connectorextras_terrablender_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[26.1,26.2)"
+    versionRange="[26.2,26.3)"
     ordering="NONE"
     side="BOTH"

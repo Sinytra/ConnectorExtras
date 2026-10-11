@@ -6,7 +6,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.sinytra.forgified-fabric-api:fabric-api-base:2.0.3+b11575294c")
+    implementation("org.sinytra.forgified-fabric-api:fabric-api-base:2.0.4+d41ec0009e")
 
     jarJar(implementation("fuzs.forgeconfigapiport:forgeconfigapiport-common-forgeapi:26.1.5") {
         version { 

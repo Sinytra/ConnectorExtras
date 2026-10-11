@@ -25,6 +25,6 @@ config="mixins.jeibridge.json"
 [[dependencies.connectorextras_jei_bridge]]
     modId="minecraft"
     type="required"
-    versionRange="[26.1,26.2)"
+    versionRange="[26.2,26.3)"
     ordering="NONE"
     side="BOTH"
