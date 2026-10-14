@@ -1,7 +1,7 @@
 package org.sinytra.connectorextras.jeibridge.mixin;
 
 import mezz.jei.api.IModPlugin;
-import mezz.jei.common.config.ConfigManager;
+import mezz.jei.api.runtime.config.IJeiConfigManager;
 import mezz.jei.library.load.PluginCaller;
 import mezz.jei.library.load.PluginHelper;
 import mezz.jei.library.plugins.jei.JeiInternalPlugin;
@@ -26,7 +26,7 @@ public class JeiStarterMixin implements JeiStarterExtension {
     private VanillaPlugin vanillaPlugin;
     @Shadow
     @Final
-    private ConfigManager configManager;
+    private IJeiConfigManager configManagerForPlugins;
 
     @Override
     @Unique
@@ -37,6 +37,6 @@ public class JeiStarterMixin implements JeiStarterExtension {
         JeiInternalPlugin jeiInternalPlugin = PluginHelper.getPluginWithClass(JeiInternalPlugin.class, this.plugins).orElse(null);
         PluginHelper.sortPlugins(this.plugins, this.vanillaPlugin, jeiInternalPlugin);
 
-        PluginCaller.callOnPlugins("Sending ConfigManager (Fabric)", fabricPlugins, p -> p.onConfigManagerAvailable(this.configManager));
+        PluginCaller.callOnPlugins("Sending ConfigManager (Fabric)", fabricPlugins, p -> p.onConfigManagerAvailable(this.configManagerForPlugins));
     }
 }
