@@ -8,6 +8,8 @@ modId="connectorextras"
 version="${file.jarVersion}"
 displayName="Connector Extras"
 authors="Su5eD"
+iconFile="icon.png"
+bannerFile="icon.png"
 displayURL="https://github.com/Sinytra/ConnectorExtras"
 description='''
 Integrating Connector with third-party APIs
