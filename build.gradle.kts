@@ -13,8 +13,6 @@ val versionNeoForge: String by rootProject
 val versionConnectorExtras: String by rootProject
 val curseForgeId: String by project
 val modrinthId: String by project
-val githubRepository: String by project
-val publishBranch: String by project
 val connectorCurseForge: String by project
 val connectorModrinth: String by project
 
@@ -145,8 +143,8 @@ publishMods {
 
     github {
         accessToken.set(providers.environmentVariable("GITHUB_TOKEN"))
-        repository.set(githubRepository)
-        commitish.set(publishBranch)
+        repository = providers.environmentVariable("GITHUB_REPOSITORY").orElse("")
+        commitish = providers.environmentVariable("GITHUB_SHA").orElse("")
     }
     curseforge {
         accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
