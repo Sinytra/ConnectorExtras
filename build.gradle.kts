@@ -3,18 +3,20 @@ import org.gradle.kotlin.dsl.get
 
 plugins {
     java
-    id("net.neoforged.moddev") version "2.0.141"
-    id("me.modmuss50.mod-publish-plugin") version "2.1.1"
-    id("net.neoforged.gradleutils") version "5.1.1"
+    id("net.neoforged.moddev") version "2.0.148"
+    id("me.modmuss50.mod-publish-plugin") version "2.2.1"
+    id("net.neoforged.gradleutils") version "6.0.0"
 }
 
-val versionMc: String by rootProject
-val versionNeoForge: String by rootProject
-val versionConnectorExtras: String by rootProject
-val curseForgeId: String by project
-val modrinthId: String by project
-val connectorCurseForge: String by project
-val connectorModrinth: String by project
+val versionMc = project.property("versionMc") as String
+val versionNeoForge = project.property("versionNeoForge") as String
+val versionConnectorExtras = project.property("versionConnectorExtras") as String
+
+val curseForgeId = project.property("curseForgeId") as String
+val modrinthId = project.property("modrinthId") as String
+
+val connectorCurseForge = project.property("connectorCurseForge") as String
+val connectorModrinth = project.property("connectorModrinth") as String
 
 val CI: Provider<String> = providers.environmentVariable("CI")
 
