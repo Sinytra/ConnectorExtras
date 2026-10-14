@@ -25,7 +25,7 @@ package com.terraformersmc.modmenu.api;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.client.gui.ModListScreen;
+import net.neoforged.neoforge.client.gui.modlist.ModListScreen;
 
 import java.util.Map;
 import java.util.function.Consumer;
@@ -40,7 +40,7 @@ public interface ModMenuApi {
      * @return A "Mods" Screen
      */
     static Screen createModsScreen(Screen previous) {
-        return new ModListScreen(previous);
+        return ModListScreen.create(previous);
     }
 
     /**
